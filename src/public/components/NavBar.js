@@ -31,7 +31,7 @@ class NavBar extends Component {
     }
     render() {
         return (
-            <Navbar color="light" light expand="md">
+            <Navbar  color="white" light expand="md">
                 {/* <div className="navbar-brand">
                     <Link to="/" className="navbar-brand">
                         <img src="http://i63.tinypic.com/oid9xu.png" height="50px" alt="Logo Santren Koding" />
@@ -40,14 +40,14 @@ class NavBar extends Component {
                 </div> */}
 
                 <NavbarBrand>
-                    <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold' }} >iplix</Link>
+                    <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold' }} >iPlix</Link>
                 </NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <Form>
                             <FormGroup style={{ margin: 0 }}>
-                                <Input type="search" name="search" id="exampleSearch" placeholder="search" />
+                                <Input type="search" name="search" id="exampleSearch" placeholder="Search" />
                             </FormGroup>
                         </Form>
 

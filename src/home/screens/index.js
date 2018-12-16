@@ -26,7 +26,7 @@ class Home extends Component {
   render() {
     return (
         <div>
-          <Jumbotron>
+          <Jumbotron style={{ height: 400 }}>
             <Container>
               <Row>
                 <Col>
