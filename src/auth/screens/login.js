@@ -32,7 +32,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="Login" style={{ flex: 1 }}>
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="username" bsSize="large">
             <ControlLabel>Username</ControlLabel>

@@ -31,14 +31,7 @@ class NavBar extends Component {
     }
     render() {
         return (
-            <Navbar  color="white" light expand="md">
-                {/* <div className="navbar-brand">
-                    <Link to="/" className="navbar-brand">
-                        <img src="http://i63.tinypic.com/oid9xu.png" height="50px" alt="Logo Santren Koding" />
-                    </Link>
-                    <Link to="/" className="navbar-brand">Santren Koding</Link>
-                </div> */}
-
+            <Navbar color="white" light expand="md" style={{ borderBottom: '1px solid grey' }}>
                 <NavbarBrand>
                     <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold' }} >iPlix</Link>
                 </NavbarBrand>
