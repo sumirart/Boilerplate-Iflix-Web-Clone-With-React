@@ -17,9 +17,15 @@ import Footer from './public/components/Footer';
 
 // IMPORT SCREEN
 import Home from './home/screens/index';
+
+import Movie from './movie/screens/movie';
+
 import Categories from './movie/screens/categories';
+import Category from './movie/screens/category';
+
 import Login from './auth/screens/login';
 import Register from './auth/screens/register';
+
 import NotFound from './public/screens/NotFound';
 
 class App extends Component {
@@ -30,9 +36,15 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
+
+            <Route path="/movie/:id" component={Movie} />
+
             <Route path="/categories" component={Categories} />
+            <Route path="/category/:id" component={Category} />
+
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+
             <Route component={NotFound} />
           </Switch>
           <Footer />

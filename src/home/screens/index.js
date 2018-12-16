@@ -71,7 +71,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -81,7 +81,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -91,7 +91,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -101,7 +101,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -111,7 +111,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -121,7 +121,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -145,7 +145,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -155,7 +155,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -165,7 +165,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -175,7 +175,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -185,7 +185,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -195,7 +195,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -219,7 +219,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -229,7 +229,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -239,7 +239,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -249,7 +249,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -259,7 +259,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
@@ -269,16 +269,13 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle>Card Title</CardTitle>
                     <CardText>Card Text</CardText>
-                    <Link to="/" className="btn btn-primary btn-sm float-right">Tonton</Link>
+                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
                   </CardBody>
                 </Card>
               </div>
             </div>
           </Container>
         </section>
-
-        <hr />
-
       </div>
     );
   }

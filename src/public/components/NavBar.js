@@ -33,7 +33,7 @@ class NavBar extends Component {
         return (
             <Navbar color="white" light expand="md" style={{ borderBottom: '1px solid grey' }}>
                 <NavbarBrand>
-                    <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold' }} >iPlix</Link>
+                    <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold', fontSize: 20 }} >iPlix</Link>
                 </NavbarBrand>
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
@@ -46,18 +46,18 @@ class NavBar extends Component {
 
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
-                                Categories
+                                Kategori
                 </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
-                                    <NavLink href="/categories">See All Categories</NavLink>
+                                    <NavLink href="/categories">Lihat Semua Kategori</NavLink>
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    <NavLink href="/?categories=romance">Romance</NavLink>
+                                    <NavLink href="/category/romance">Romance</NavLink>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <NavLink href="/?categories=sci-fi">Sci-Fi</NavLink>
+                                    <NavLink href="/category/sci-fi">Sci-Fi</NavLink>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
@@ -65,7 +65,7 @@ class NavBar extends Component {
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Account
-                </DropdownToggle>
+                            </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
                                     <NavLink href="/login">Login</NavLink>
