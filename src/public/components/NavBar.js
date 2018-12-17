@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+
 import {
     Collapse,
     Navbar,
@@ -13,7 +15,6 @@ import {
     DropdownItem,
     Form, FormGroup, Input
 } from 'reactstrap';
-
 
 class NavBar extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class NavBar extends Component {
         });
     }
     render() {
+        console.log(this.props.auth)
         return (
             <Navbar color="white" light expand="md" style={{ borderBottom: '1px solid grey' }}>
                 <NavbarBrand>
@@ -47,7 +49,7 @@ class NavBar extends Component {
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 Kategori
-                </DropdownToggle>
+                            </DropdownToggle>
                             <DropdownMenu right>
                                 <DropdownItem>
                                     <NavLink href="/categories">Lihat Semua Kategori</NavLink>
@@ -62,19 +64,33 @@ class NavBar extends Component {
                             </DropdownMenu>
                         </UncontrolledDropdown>
 
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Account
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>
-                                    <NavLink href="/login">Login</NavLink>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <NavLink href="/register">Register</NavLink>
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
+                        {this.props.auth.user.length === 0 ?
+                            <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret>
+                                    Account
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem>
+                                        <NavLink href="/login">Login</NavLink>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        <NavLink href="/register">Register</NavLink>
+                                    </DropdownItem>
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+                            :
+
+                            <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret>
+                                    {this.props.auth.user[0].username}
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem>
+                                        <NavLink href="/logout">Logout</NavLink>
+                                    </DropdownItem>
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+                        }
                     </Nav>
                 </Collapse>
             </Navbar>
@@ -82,4 +98,8 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+const mapsStateToProps = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapsStateToProps)(NavBar);

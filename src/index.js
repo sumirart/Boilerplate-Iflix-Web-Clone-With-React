@@ -1,15 +1,21 @@
+// STYLING
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
+// import $ from 'jquery';
+// import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './index.css';
 // import "./index.scss";
+
 import * as serviceWorker from './serviceWorker';
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+// REDUX STUFF
+import { Provider } from 'react-redux';
+import { store, persistor } from './public/redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // IMPORT COMPONENT
 import NavBar from './public/components/NavBar';
@@ -31,28 +37,31 @@ import NotFound from './public/screens/NotFound';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div>
-          <NavBar />
-          <Switch>
-            <Route exact path="/" component={Home} />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <div>
+              <NavBar />
+              <Switch>
+                <Route exact path="/" component={Home} />
 
-            <Route path="/movie/:id" component={Movie} />
+                <Route path="/movie/:id" component={Movie} />
 
-            <Route path="/categories" component={Categories} />
-            <Route path="/category/:id" component={Category} />
+                <Route path="/categories" component={Categories} />
+                <Route path="/category/:id" component={Category} />
 
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
 
-            <Route component={NotFound} />
-          </Switch>
-          <Footer />
-        </div>
-      </BrowserRouter>
+                <Route component={NotFound} />
+              </Switch>
+              <Footer />
+            </div>
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
     )
   }
-
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));

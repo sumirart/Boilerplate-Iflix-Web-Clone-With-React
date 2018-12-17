@@ -51,7 +51,7 @@ class Home extends Component {
                 </p>
               </Col>
               <Col>
-                <img src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" class="img-fluid" alt="Spider-Man: Into the Spider-Verse (2018) 720p CAM 700MB" />
+                <img src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" className="img-fluid" alt="Spider-Man: Into the Spider-Verse (2018) 720p CAM 700MB" />
               </Col>
             </Row>
           </Container>

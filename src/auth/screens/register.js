@@ -1,88 +1,43 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
 import "../style.css";
 
+// Register form
+import RegisterForm from '../components/registerForm';
+
+// import action
+import { register } from '../../public/redux/actions/auth';
 
 class Register extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      username: "",
-      email: "",
-      name: "",
-      password: ""
-    };
+  state = {
+    toHome: false
   }
 
-  validateForm() {
-    return this.state.username.length > 0 && this.state.password.length > 0;
+  handleSubmit = value => {
+    this.props.dispatch(register(value))
+      .then(() => {
+        this.setState({ toHome: true });
+      })
+      .catch(err => alert(err));
   }
-
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    console.log(event);
-  }
-
 
   render() {
+    if (this.state.toHome === true) {
+      return <Redirect to="/" />
+    }
+
     return (
-      <div className="Login">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="username" bsSize="large">
-            <ControlLabel>Username</ControlLabel>
-            <FormControl
-              autoFocus
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
-            <FormControl
-              autoFocus
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="name" bsSize="large">
-            <ControlLabel>Name</ControlLabel>
-            <FormControl
-              autoFocus
-              type="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-            />
-          </FormGroup>
-          <Button
-            onClick={this.handleSubmit}
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
-            Login
-        </Button>
-        </form>
+      <div className="container">
+        <div className="form">
+          <div style={{ width: "30%" }}>
+            <RegisterForm onSubmit={this.handleSubmit} />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default Register;
+export default connect()(Register);

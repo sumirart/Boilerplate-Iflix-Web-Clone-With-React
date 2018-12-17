@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import {
     Container
 } from 'reactstrap';
-import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap'
+// import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap'
 
 class Categories extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     // toggle() {
     //     this.setState({
