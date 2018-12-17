@@ -7,7 +7,8 @@ import {
   Jumbotron,
   Button
 } from 'reactstrap';
-import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap'
+import { Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
+import axios from 'axios';
 
 // CAROUSEL
 // import { Carousel } from 'react-responsive-carousel';
@@ -19,9 +20,38 @@ class Home extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+    this.fetchNextPage = this.fetchNextPage.bind(this);
+    this.fetchPreviousPage = this.fetchPreviousPage.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      movies: [],
+      page: 1,
+      lastPage: 0
     };
+  }
+
+  componentDidMount() {
+    this.getMovies(1)
+  }
+
+  fetchNextPage() {
+    const nextPage = this.state.page + 1;
+    this.getMovies(nextPage);
+    // this.setState({ page: nextPage });
+  }
+  fetchPreviousPage() {
+    const previousPage = this.state.page - 1;
+    this.getMovies(previousPage);
+    // this.setState({ page: previousPage });
+  }
+
+  getMovies(number) {
+    axios.get("http://192.168.0.62:3333/movies?page=" + number)
+      .then(res => {
+        console.log(res.data.movies);
+        this.setState({ movies: res.data.movies.data, lastPage: res.data.movies.lastPage, page: number });
+      })
+      .catch(err => alert(err))
   }
 
   toggle() {
@@ -274,6 +304,52 @@ class Home extends Component {
                 </Card>
               </div>
             </div>
+          </Container>
+        </section>
+
+        <hr />
+
+        <section id="semua">
+          <Container>
+            <div className="row p-3">
+              <div className="col-md-12">
+                <h2 className="text-left">Semua</h2>
+              </div>
+            </div>
+            <CardGroup>
+              <div className="row" style={{ marginBottom: 30 }}>
+                {
+                  this.state.movies.map(data =>
+                    <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
+                      <Card style={{ marginBottom: 20 }}>
+                        <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
+                        <CardBody>
+                          <CardTitle>{data.title}</CardTitle>
+                          <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
+                          {/* <Link to="/movie/id" className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link> */}
+                          <Link to={{ pathname: '/movie/' + data.id, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
+                        </CardBody>
+                      </Card>
+                    </div>
+                  )
+                }
+              </div>
+            </CardGroup>
+            <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
+              {this.state.page === 1 ?
+                <Button style={{margin: 10 }} color="secondary" size="large" target="_blank" >Sebelumnya</Button>
+                :
+                <Button style={{margin: 10 }} onClick={this.fetchPreviousPage} color="success" size="large" target="_blank">
+                  Sebelumnya</Button>
+              }
+              {this.state.page === this.state.lastPage ?
+                <Button style={{margin: 10 }} color="secondary" size="large" target="_blank" >Selanjutnya</Button>
+                :
+                <Button style={{margin: 10 }} onClick={this.fetchNextPage} color="success" size="large" target="_blank">
+                  Selanjutnya</Button>
+              }
+            </div>
+
           </Container>
         </section>
       </div>
