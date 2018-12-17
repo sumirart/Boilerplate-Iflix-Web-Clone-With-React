@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 import {
     Collapse,
@@ -16,22 +17,39 @@ import {
     Form, FormGroup, Input
 } from 'reactstrap';
 
+// import action
+import { logout } from '../../public/redux/actions/auth';
+
+
 class NavBar extends Component {
     constructor(props) {
         super(props);
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            isOpen: false,
+            toHome: false
         };
     }
+
     toggle() {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
+
+    logout = _ => {
+        this.props.dispatch(logout())
+            .then(() => {
+                this.setState({ toHome: true });
+            })
+    }
+
     render() {
-        console.log(this.props.auth)
+        if (this.state.toHome === true) {
+            return <Redirect to="/" />
+        }
+
         return (
             <Navbar color="white" light expand="md" style={{ borderBottom: '1px solid grey' }}>
                 <NavbarBrand>
@@ -86,7 +104,7 @@ class NavBar extends Component {
                                 </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
-                                        <NavLink href="/logout">Logout</NavLink>
+                                        <NavLink onClick={() => this.logout()} >Logout</NavLink>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
@@ -102,4 +120,4 @@ const mapsStateToProps = (state) => ({
     auth: state.auth
 })
 
-export default connect(mapsStateToProps)(NavBar);
+export default connect(mapsStateToProps, null)(NavBar);
