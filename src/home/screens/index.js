@@ -48,10 +48,10 @@ class Home extends Component {
   getMovies(number) {
     axios.get("http://192.168.0.62:3333/movies?page=" + number)
       .then(res => {
-        console.log(res.data.movies);
-        this.setState({ movies: res.data.movies.data, lastPage: res.data.movies.lastPage, page: number });
+        console.log(res.data.data);
+        this.setState({ movies: res.data.data, lastPage: res.data.lastPage, page: number });
       })
-      .catch(err => alert(err.response))
+      .catch(err => console.log(err.response))
   }
 
   toggle() {
@@ -326,7 +326,6 @@ class Home extends Component {
                         <CardBody>
                           <CardTitle>{data.title}</CardTitle>
                           <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
-                          {/* <Link to="/movie/id" className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link> */}
                           <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
                         </CardBody>
                       </Card>
@@ -337,19 +336,18 @@ class Home extends Component {
             </CardGroup>
             <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
               {this.state.page === 1 ?
-                <Button style={{margin: 10 }} color="secondary" size="large" target="_blank" >Sebelumnya</Button>
+                <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Sebelumnya</Button>
                 :
-                <Button style={{margin: 10 }} onClick={this.fetchPreviousPage} color="success" size="large" target="_blank">
+                <Button style={{ margin: 10 }} onClick={this.fetchPreviousPage} color="success" size="large" target="_blank">
                   Sebelumnya</Button>
               }
               {this.state.page === this.state.lastPage ?
-                <Button style={{margin: 10 }} color="secondary" size="large" target="_blank" >Selanjutnya</Button>
+                <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Selanjutnya</Button>
                 :
-                <Button style={{margin: 10 }} onClick={this.fetchNextPage} color="success" size="large" target="_blank">
+                <Button style={{ margin: 10 }} onClick={this.fetchNextPage} color="success" size="large" target="_blank">
                   Selanjutnya</Button>
               }
             </div>
-
           </Container>
         </section>
       </div>

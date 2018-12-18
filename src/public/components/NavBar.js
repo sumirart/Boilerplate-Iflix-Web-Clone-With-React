@@ -29,7 +29,8 @@ class NavBar extends Component {
         this.state = {
             isOpen: false,
             toHome: false,
-            search: ''
+            search: '',
+            toSearch: false,
         };
     }
 
@@ -53,13 +54,18 @@ class NavBar extends Component {
 
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.state.search)
-        this.setState({search: ''})
+        console.log(this.state.search);
+        this.setState({ toSearch: true });
+        // this.setState({search: ''});
     }
 
     render() {
         if (this.state.toHome === true) {
             return <Redirect to="/" />
+        }
+        if (this.state.toSearch === true){
+            // const route = '/movies?search=' + this.state.search;
+            return <Redirect to={`/movies?search=` + this.state.search} />
         }
 
         return (

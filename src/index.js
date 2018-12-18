@@ -25,6 +25,7 @@ import Footer from './public/components/Footer';
 import Home from './home/screens/index';
 
 import Movie from './movie/screens/movie';
+import Search from './movie/screens/search';
 
 import Categories from './movie/screens/categories';
 import Category from './movie/screens/category';
@@ -41,21 +42,24 @@ class App extends Component {
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
             <div>
-              <NavBar />
               <Switch>
-                <Route exact path="/" component={Home} />
+                <div>
+                  <NavBar />
 
-                <Route exact path="/movie/:id" render={(props) => <Movie {...props} /> } />
+                  <Route exact path="/" component={Home} />
 
-                {/* <Route path="/?search=id" component={Category} /> */}
-                
-                <Route path="/categories" component={Categories} />
-                <Route path="/category/:id" component={Category} />
+                  <Route exact path="/movie/:id" render={(props) => <Movie {...props} />} />
 
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
+                  <Route path={`/movies`} component={Search} />
 
-                <Route component={NotFound} />
+                  <Route path="/categories" component={Categories} />
+                  <Route path="/category/:id" component={Category} />
+
+                  <Route path="/login" component={Login} />
+                  <Route path="/register" component={Register} />
+
+                  <Route component={NotFound} />
+                </div>
               </Switch>
               <Footer />
             </div>
