@@ -45,9 +45,10 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
 
-                {/* <Route path="/movie/:id" component={Movie} /> */}
                 <Route exact path="/movie/:id" render={(props) => <Movie {...props} /> } />
 
+                {/* <Route path="/?search=id" component={Category} /> */}
+                
                 <Route path="/categories" component={Categories} />
                 <Route path="/category/:id" component={Category} />
 

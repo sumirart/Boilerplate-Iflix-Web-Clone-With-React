@@ -20,7 +20,10 @@ class Register extends Component {
       .then(() => {
         this.setState({ toHome: true });
       })
-      .catch(err => alert(err));
+      .catch(err => {
+        alert(err.response.data.messages);
+        console.log(err.response);
+      });
   }
 
   render() {

@@ -51,7 +51,7 @@ class Home extends Component {
         console.log(res.data.movies);
         this.setState({ movies: res.data.movies.data, lastPage: res.data.movies.lastPage, page: number });
       })
-      .catch(err => alert(err))
+      .catch(err => alert(err.response))
   }
 
   toggle() {
@@ -327,7 +327,7 @@ class Home extends Component {
                           <CardTitle>{data.title}</CardTitle>
                           <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
                           {/* <Link to="/movie/id" className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link> */}
-                          <Link to={{ pathname: '/movie/' + data.id, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
+                          <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
                         </CardBody>
                       </Card>
                     </div>

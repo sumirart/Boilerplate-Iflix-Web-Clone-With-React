@@ -28,7 +28,8 @@ class NavBar extends Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false,
-            toHome: false
+            toHome: false,
+            search: ''
         };
     }
 
@@ -45,6 +46,17 @@ class NavBar extends Component {
             })
     }
 
+    handleChange(e){
+        this.setState({ search: e.target.value });
+        // console.log(e.target.value)
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        console.log(this.state.search)
+        this.setState({search: ''})
+    }
+
     render() {
         if (this.state.toHome === true) {
             return <Redirect to="/" />
@@ -58,9 +70,9 @@ class NavBar extends Component {
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
-                        <Form>
+                        <Form onSubmit={e => this.handleSubmit(e)}>
                             <FormGroup style={{ margin: 0 }}>
-                                <Input type="search" name="search" id="exampleSearch" placeholder="Search" />
+                                <Input type="text" name="search" id="exampleSearch" placeholder="Search" value={this.state.search} onChange={e => this.handleChange(e)}/>
                             </FormGroup>
                         </Form>
 

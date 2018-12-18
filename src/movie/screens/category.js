@@ -3,18 +3,8 @@ import { Link } from 'react-router-dom'
 import {
     Container
 } from 'reactstrap';
-// import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap'
 
 class Category extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
-
-    // toggle() {
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     });
-    // }
 
     render() {
         // console.log(this.props);

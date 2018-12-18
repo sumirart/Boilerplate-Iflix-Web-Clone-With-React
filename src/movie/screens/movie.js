@@ -26,7 +26,7 @@ class Movie extends Component {
                             // height="100%"
                             // position="absolute"
                             // width="100%"
-                            // styles={{height: "5"}}
+                            styles={{ maxHeight: "800px"}}
                             allowFullScreen />
                     </div>
                     <h3 className="text-left">{data.title}</h3>
