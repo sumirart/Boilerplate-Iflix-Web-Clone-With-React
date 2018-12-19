@@ -71,7 +71,7 @@ class Home extends Component {
       <div>
         <div id="myCarousel" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
           </ol>
@@ -327,7 +327,6 @@ class Home extends Component {
             </div>
             <CardGroup>
               <div className="row" style={{ marginBottom: 30 }}>
-                {/* <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}> */}
                 {
                   this.state.movies.map(data =>
                     //   <Item key={data.id}
@@ -337,18 +336,29 @@ class Home extends Component {
                     //   backdrop={data.thumbnails}
                     // />
                     // <div className='Item' style={{ backgroundColor: 'yellow' }} key={data.id} >
-                    <div className='Item' style={{ backgroundImage: 'https://ganol.si/wp-content/uploads/2018/07/The-First-Purge-2018-215x323.jpg' }} key={data.id} >
-                      <a href="/" style={{ color: "white", textDecoration: "none" }}>
-                        <div className='overlay'>
-                          <div className='title'>{data.title}</div>
-                          <div className='rating'>{data.rating}</div>
-                          <div className='plot'>{data.description}</div>
+                    <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
+                      <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
+                        <div className="overlay">
+                          <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                          <div className="rating">{data.rating.substr(0, 3)} / 10</div>
+                          <div className="plot">{data.description.substr(0, 50) + '..'}</div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
+                    // <Item key={data.id} slug={data.slug} data={data} title={data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')} score={data.rating.substr(0, 3)} overview={data.description.substr(0, 50) + '..'} backdrop='http://image.tmdb.org/t/p/original/ydUpl3QkVUCHCq1VWvo2rW4Sf7y.jpg' />
+
+                    // <Item key={data.id} title={data.title.replace('Nonton ', '')} score={data.rating.substr(0, 3)} overview={data.description.substr(0, 50) + '..'} backdrop='http://image.tmdb.org/t/p/original/ydUpl3QkVUCHCq1VWvo2rW4Sf7y.jpg' />
+                    // <div className='Item' style={{ backgroundImage: 'https://ganol.si/wp-content/uploads/2018/07/The-First-Purge-2018-215x323.jpg' }} key={data.id} >
+                    //   <a href="/" style={{ color: "white", textDecoration: "none" }}>
+                    //     <div className='overlay'>
+                    //       <div className='title'>{data.title}</div>
+                    //       <div className='rating'>{data.rating}</div>
+                    //       <div className='plot'>{data.description}</div>
+                    //     </div>
+                    //   </a>
+                    // </div>
                   )
                 }
-                {/* </Link> */}
                 {/* previous card clickable */}
                 {/* <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
                   <Card style={{ marginBottom: 20 }}>
@@ -378,6 +388,20 @@ class Home extends Component {
             </div>
           </Container>
         </section>
+      </div>
+    );
+  }
+}
+
+class Item extends Component {
+  render() {
+    return (
+      <div className="Item" style={{ backgroundImage: 'url(' + this.props.backdrop + ')' }} >
+        <div className="overlay">
+          <div className="title" style={{ lineHeight: 1.2 }}>{this.props.title}</div>
+          <div className="rating">{this.props.score} / 10</div>
+          <div className="plot">{this.props.overview}</div>
+        </div>
       </div>
     );
   }

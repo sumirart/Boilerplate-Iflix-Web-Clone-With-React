@@ -6,7 +6,7 @@ class Logo extends Component {
 		return (
 			<div id="logo" className="Logo">
 				<Link to="/" className="navbar-brand">
-					<img src="https://fontmeme.com/permalink/181218/ee8f475c180be9f61ff15b7e52e3225e.png" />
+					<img src="https://fontmeme.com/permalink/181218/ee8f475c180be9f61ff15b7e52e3225e.png" alt="iplix  logo" />
 				</Link>
 				{/* <svg version="1.1" width="300" height="81.386726" id="svg3262">
 					<g transform="translate(-384.28572,-428.81172)" id="layer1">

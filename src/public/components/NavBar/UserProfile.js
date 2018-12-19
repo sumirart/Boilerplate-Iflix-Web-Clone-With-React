@@ -51,7 +51,7 @@ class UserProfile extends Component {
 											<ul>
 												<li>
 													<div className="UserProfile-image">
-														<img src="http://lorempixel.com/96/96" />
+														<img src="https://randomuser.me/api/portraits/men/3.jpg" />
 													</div>
 													{/* <div style={{ textTransform: 'capitalize' }}>{this.props.auth.user[0].name}</div> */}
 												</li>

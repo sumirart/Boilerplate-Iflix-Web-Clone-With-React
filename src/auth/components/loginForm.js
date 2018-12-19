@@ -49,7 +49,7 @@ const LoginForm = (props) => {
             <div style={{ marginTop: 10 }}>
                 <Button type="submit" disabled={submitting} color="primary" >Sign In</Button>
             </div>
-            <p style={{ marginTop: 5, textAlign: "center", fontWeight: "bold" }}>New to iPlix? <a className="hoverLink" href="/register">Sign up now</a>.</p>
+            <p style={{ marginTop: 5, textAlign: "center" }}>New to iPlix? <a className="hoverLink" href="/register" style={{ fontWeight: "bold" }}>Sign up now</a>.</p>
         </form>
     )
 }

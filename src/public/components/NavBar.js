@@ -33,7 +33,7 @@ class NavBar extends Component {
 
 
     render() {
-        if(this.props.location.pathname == "/login" || this.props.location.pathname == "/register"){
+        if(this.props.location.pathname === "/login" || this.props.location.pathname === "/register"){
             return null
         } else if(this.props.auth.user.length === 0){
         	return <Redirect to="/landing-page" style={{ marginTop: -90}} />
@@ -52,7 +52,6 @@ class NavBar extends Component {
             <header className="Header" style={{ marginBottom: 100 }}>
                 <Logo />
                 <Navigation />
-                {/* <Search onSubmit={e => this.handleSubmit(e)} /> */}
                 <Search />
                 <UserProfile />
             </header>
@@ -64,5 +63,4 @@ const mapsStateToProps = (state) => ({
     auth: state.auth
 })
 
-// export default withRouter(NavBar);
 export default withRouter(connect(mapsStateToProps, null)(NavBar));
