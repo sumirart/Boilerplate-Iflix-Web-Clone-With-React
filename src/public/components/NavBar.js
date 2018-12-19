@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Redirect } from 'react-router';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 // import action
 import { logout } from '../../public/redux/actions/auth';
@@ -33,6 +33,12 @@ class NavBar extends Component {
 
 
     render() {
+        if(this.props.location.pathname == "/login" || this.props.location.pathname == "/register"){
+            return null
+        } else if(this.props.auth.user.length === 0){
+        	return <Redirect to="/landing-page" style={{ marginTop: -90}} />
+        }
+
         if (this.state.toHome === true) {
             return <Redirect to="/" />
         }
@@ -42,20 +48,21 @@ class NavBar extends Component {
         }
 
         return (
-             <header className="Header" style={{ marginBottom: 100 }}>
+
+            <header className="Header" style={{ marginBottom: 100 }}>
                 <Logo />
                 <Navigation />
                 {/* <Search onSubmit={e => this.handleSubmit(e)} /> */}
-                <Search/>
+                <Search />
                 <UserProfile />
             </header>
         );
     }
 }
 
-// const mapsStateToProps = (state) => ({
-//     auth: state.auth
-// })
+const mapsStateToProps = (state) => ({
+    auth: state.auth
+})
 
-export default NavBar;
-// export default connect(mapsStateToProps, null)(NavBar);
+// export default withRouter(NavBar);
+export default withRouter(connect(mapsStateToProps, null)(NavBar));

@@ -122,6 +122,7 @@ p {
 .UserProfile .User .image {
   border-radius: 44px;
   margin-left: 10px;
+  margin-top: 0;
   overflow: hidden;
   width: 44px;
   height: 44px;

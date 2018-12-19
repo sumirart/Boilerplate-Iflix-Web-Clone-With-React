@@ -1,14 +1,31 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import "../style.css";
+
+// import component
+import Nav from '../components/Nav/Nav'
+import bgimg from './img/bg.jpg'
 
 // Register form
 import RegisterForm from '../components/registerForm';
 
 // import action
 import { register } from '../../public/redux/actions/auth';
+
+const Header = styled.header`
+    background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.75), 
+                rgba(0, 0, 0, 0.09)
+                ),
+                url(${bgimg});
+                height: 100vh;
+    @media (max-width: 1000px) {
+      height: 90vh;
+    }
+`;
 
 class Register extends Component {
   state = {
@@ -32,13 +49,14 @@ class Register extends Component {
     }
 
     return (
-      <div className="container">
-        <div className="form">
+      <Header>
+      <Nav />
+      <div className="form">
           <div style={{ width: "30%" }}>
             <RegisterForm onSubmit={this.handleSubmit} />
           </div>
         </div>
-      </div>
+    </Header>
     );
   }
 }

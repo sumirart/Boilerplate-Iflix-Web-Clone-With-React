@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Button, FormControl } from "react-bootstrap";
+import { FormControl } from "react-bootstrap";
+import styled, { css } from 'styled-components';
 
 const required = value => value ? undefined : 'Required!'
 
@@ -10,6 +11,28 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
             <FormControl {...input} placeholder={label} type={type} />
     </div>
 )
+
+const Button = styled.button`
+    color: white;
+    cursor: pointer;
+    background-color: #e50914;
+    line-height: normal;
+    margin: 18px 3% 0 0;
+    padding: 7px 17px;
+    font-weight: 100;
+    border: transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: one;
+    width: 100%;
+
+    ${props => props.right && css`
+        float: right;
+    `}
+    &:hover {
+        background-color: #E53935;
+    }
+`;
 
 const LoginForm = (props) => {
     const { handleSubmit, submitting } = props
@@ -24,8 +47,9 @@ const LoginForm = (props) => {
                 validate={required}
             />
             <div style={{ marginTop: 10 }}>
-                <Button type="submit" disabled={submitting} color="primary" >Submit</Button>
+                <Button type="submit" disabled={submitting} color="primary" >Sign In</Button>
             </div>
+            <p style={{ marginTop: 5, textAlign: "center", fontWeight: "bold" }}>New to iPlix? <a className="hoverLink" href="/register">Sign up now</a>.</p>
         </form>
     )
 }

@@ -6,3 +6,8 @@
       margin: 30px;
     }
   }
+
+  .hoverLink:hover {
+    color: red;
+    text-decoration: underline;
+  }

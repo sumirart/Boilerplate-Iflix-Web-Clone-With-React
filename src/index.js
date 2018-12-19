@@ -22,6 +22,7 @@ import NavBar from './public/components/NavBar';
 import Footer from './public/components/Footer';
 
 // IMPORT SCREEN
+import LandingPage from './landingpage/'
 import Home from './home/screens/index';
 import Movie from './movie/screens/movie';
 import Search from './movie/screens/search';
@@ -39,9 +40,9 @@ class App extends Component {
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
             <div>
-              <NavBar/>
-              <div style={{ marginTop: 90 }} />
+              <NavBar style={{ marginTop: 90 }} />
               <Switch>
+                <Route exact path="/landing-page" component={LandingPage} />
                 <Route exact path="/" component={Home} />
                 <Route exact path="/movie/:id" render={(props) => <Movie {...props} />} />
                 <Route exact path={`/movies`} component={Search} />

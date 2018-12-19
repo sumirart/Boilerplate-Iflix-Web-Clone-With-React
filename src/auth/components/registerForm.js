@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import { Button, FormControl } from "react-bootstrap";
+import { FormControl } from "react-bootstrap";
+import styled, { css } from 'styled-components';
 
 // FIELD VALIDATION
 const required = value => value ? undefined : 'Required!';
@@ -13,13 +14,32 @@ const email = value =>
 // FIELD FORM
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
     <div style={{ marginBottom: 10 }}>
-        {/* <div> */}
-        {/* <label style={{ fontWeight: "bold" }}>{label}:</label> */}
-        {/* </div> */}
             {touched && ((error && <span style={{ fontWeight: "bold", color: "red" }}>{error}</span>))}
             <FormControl {...input} placeholder={label} type={type} />
     </div>
 )
+
+const Button = styled.button`
+    color: white;
+    cursor: pointer;
+    background-color: #e50914;
+    line-height: normal;
+    margin: 18px 3% 0 0;
+    padding: 7px 17px;
+    font-weight: 100;
+    border: transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: one;
+    width: 100%;
+
+    ${props => props.right && css`
+        float: right;
+    `}
+    &:hover {
+        background-color: #E53935;
+    }
+`;
 
 const RegisterForm = (props) => {
     const { handleSubmit, submitting } = props
@@ -35,15 +55,16 @@ const RegisterForm = (props) => {
             />
             <Field name="name" type="text"
                 component={renderField} label="Name"
-                validate={[required, minLength(3)]}
+                validate={required}
             />
             <Field name="password" type="password"
                 component={renderField} label="Password"
                 validate={[required, minLength(6)]}
             />
             <div style={{ marginTop: 10 }}>
-                <Button type="submit" disabled={submitting} color="primary" >Submit</Button>
+                <Button type="submit" disabled={submitting} color="primary" >Register</Button>
             </div>
+            <p style={{ marginTop: 5, textAlign: "center", fontWeight: "bold" }}>Have an account? <a className="hoverLink" href="/register">Sign in</a>.</p>
         </form>
     )
 }
