@@ -12,9 +12,9 @@ import axios from 'axios';
 
 import Item from '@bit/ranm8.netflix-like.ui.item';
 
-import style from './style.scss';
 // import '../../global.css';
 import './global.css'
+import './ini.css'
 
 // CAROUSEL
 // import { Carousel } from 'react-responsive-carousel';
@@ -333,14 +333,15 @@ class Home extends Component {
                     //   overview={data.description}
                     //   backdrop={data.thumbnails}
                     // />
-                    <div className={style.Item} style={{ backgroundImage: data.thumbnails, backgroundColor: "yellow" }} key={data.id} >
-                      {/* <a href="/" style={{ color: "white", textDecoration: "none" }}> */}
-                        <div className={style.overlay}>
-                          <div className={style.title}>{data.title}</div>
-                          <div className={style.rating}>{data.rating} / 10</div>
-                          <div className={style.plot}>{data.description}</div>
+                    // <div className='Item' style={{ backgroundColor: 'yellow' }} key={data.id} >
+                    <div className='Item' style={{ backgroundImage: 'https://ganol.si/wp-content/uploads/2018/07/The-First-Purge-2018-215x323.jpg' }} key={data.id} >
+                      <a href="/" style={{ color: "white", textDecoration: "none" }}>
+                        <div className='overlay'>
+                          <div className='title'>{data.title}</div>
+                          <div className='rating'>{data.rating}</div>
+                          <div className='plot'>{data.description}</div>
                         </div>
-                      {/* </a> */}
+                      </a>
                     </div>
                   )
                 }
@@ -369,7 +370,7 @@ class Home extends Component {
                 <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Selanjutnya</Button>
                 :
                 <Button style={{ margin: 10 }} onClick={this.fetchNextPage} color="success" size="large" target="_blank">
-                  Selanjutnya</Button>
+                  Selanjutnyaa</Button>
               }
             </div>
           </Container>

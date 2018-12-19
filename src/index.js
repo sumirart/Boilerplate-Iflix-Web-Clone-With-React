@@ -5,7 +5,6 @@ import './index.css';
 
 // import $ from 'jquery';
 // import Popper from 'popper.js';
-// import "./index.scss";
 
 import * as serviceWorker from './serviceWorker';
 
