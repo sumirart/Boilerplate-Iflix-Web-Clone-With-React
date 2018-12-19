@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom'
 
+
+// import action
 import { logout } from '../../redux/actions/auth';
 // import { logout } from '../../public/redux/actions/auth';
 
@@ -14,7 +17,7 @@ class Search extends Component {
             isOpen: false,
             toHome: false,
             search: '',
-            toSearch: false,
+            // toSearch: false,
         };
 	}
 
@@ -30,23 +33,28 @@ class Search extends Component {
 	}
 
 	handleSubmit(e) {
-        // e.preventDefault();
+        e.preventDefault();
         if (this.state.search !== '') {
-            console.log(this.state.search);
-            this.setState({ toSearch: true });
+            // console.log(this.state.search);
+			this.props.history.push({
+				pathname: '/movies',
+				search: '?search=' + this.state.search,
+				// state: { detail: response.data }
+			  })
+			  this.setState({search: ''});
         }
-        // this.setState({search: ''});
     }
 	
     render() {
 		if (this.state.toHome === true) {
             return <Redirect to="/" />
         }
-        if (this.state.toSearch === true) {
-            // const route = '/movies?search=' + this.state.search;
-            return <Redirect to={`/movies?search=` + this.state.search} />
-		}
+        // if (this.state.toSearch === true) {
+        //     // const route = '/movies?search=' + this.state.search;
+        //     return <Redirect to={`/movies?search=` + this.state.search} />
+		// }
 		
+		// console.log(this.props)
         return (
 			<form onSubmit={e => this.handleSubmit(e)} id="search" className="Search">
 				<input type="search" placeholder="Search for a title..." value={this.state.search} onChange={e => this.handleChange(e)} />
@@ -54,4 +62,4 @@ class Search extends Component {
 		);
     }
 }
-export default Search;
+export default withRouter(Search);

@@ -36,6 +36,7 @@ p {
   width: 100vw;
   box-sizing: border-box;
   z-index: 5;
+  padding-bottom: 100px;
 }
 
 .Logo {

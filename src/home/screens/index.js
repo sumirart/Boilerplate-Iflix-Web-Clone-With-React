@@ -68,8 +68,55 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Jumbotron style={{ height: 400, borderRadius: 0 }}>
+      <div style={{ marginTop: -90 }}>
+        <div id="myCarousel" className="carousel slide" data-ride="carousel">
+        <ol className="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img className="first-slide" src="https://bit.ly/2GrFyXq" alt="First slide"/>
+            <div className="container">
+              <div className="carousel-caption text-left">
+                <p><a className="btn btn-danger" href="#" role="button"><span class="glyphicon glyphicon-play"></span> Play</a>&nbsp;<a className="btn btn-danger" href="#"><span class="glyphicon glyphicon-plus"></span> My List</a></p>
+                <h3>Watch Tokyo Ghoul Now</h3>
+                <p>He's an ordinary man living an unremarkable life.</p>
+              </div>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img className="second-slide" src="https://bit.ly/2EEmHGE" alt="Second slide"/>
+            <div className="container">
+              <div className="carousel-caption text-left">
+                <p><a className="btn btn-danger" href="#" role="button"><span class="glyphicon glyphicon-play"></span> Play</a>&nbsp;<a className="btn btn-danger" href="#"><span class="glyphicon glyphicon-plus"></span> My List</a></p>
+                <h3>Watch Ao No Exorcist Now</h3>
+                <p>He's an ordinary man living an unremarkable life.</p>
+              </div>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img className="third-slide" src="https://bit.ly/2A4jLPE" alt="Third slide"/>
+            <div className="container">
+              <div className="carousel-caption text-left">
+                <p><a className="btn btn-danger" href="#" role="button"><span class="glyphicon glyphicon-play"></span> Play</a>&nbsp;<a className="btn btn-danger" href="#"><span class="glyphicon glyphicon-plus"></span> My List</a></p>
+                <h3>Watch Fairy Tail Now</h3>
+                <p>He's an ordinary man living an unremarkable life.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="sr-only">Previous</span>
+        </a>
+        <a className="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="sr-only">Next</span>
+        </a>
+      </div>
+        {/* <Jumbotron style={{ height: 400, borderRadius: 0 }}>
           <Container>
             <Row style={{ height: 400 }}>
               <Col>
@@ -91,7 +138,7 @@ class Home extends Component {
               </Col>
             </Row>
           </Container>
-        </Jumbotron>
+        </Jumbotron> */}
 
         {/* <section id="trending">
           <Container>

@@ -42,7 +42,7 @@ class NavBar extends Component {
         }
 
         return (
-             <header className="Header">
+             <header className="Header" style={{ marginBottom: 100 }}>
                 <Logo />
                 <Navigation />
                 {/* <Search onSubmit={e => this.handleSubmit(e)} /> */}

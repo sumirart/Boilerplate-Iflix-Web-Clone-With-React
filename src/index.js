@@ -39,7 +39,8 @@ class App extends Component {
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
             <div>
-              <NavBar />
+              <NavBar/>
+              <div style={{ marginTop: 90 }} />
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/movie/:id" render={(props) => <Movie {...props} />} />
