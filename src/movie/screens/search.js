@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import axios from 'axios';
 
 import { Container, Button, Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
-
+import Item from '@bit/ranm8.netflix-like.ui.item';
 
 class Search extends Component {
     constructor(props) {
@@ -68,30 +68,36 @@ class Search extends Component {
                             </div>
                             :
                             <CardGroup>
-                                <div className="row" style={{ marginBottom: 30 }}>
+                                <div className="row" style={{ marginBottom: 10 }}>
                                     {
                                         this.state.movies.map(data =>
-                                            <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
-                                                <Card style={{ marginBottom: 20 }}>
-                                                    <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
-                                                    <CardBody>
-                                                        <CardTitle>{data.title}</CardTitle>
-                                                        <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
-                                                        {/* <Link to="/movie/id" className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link> */}
-                                                        <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
-                                                    </CardBody>
-                                                </Card>
-                                            </div>
+                                            <Item key={data.id}
+                                                title={data.title.substr(0, data.title.indexOf('('))}
+                                                score={data.rating.substr(0, 3)}
+                                                overview={data.description}
+                                                backdrop={data.thumbnails}
+                                            />
                                         )
                                     }
+                                    {/* previous clickable item
+                                    <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
+                                        <Card style={{ marginBottom: 20 }}>
+                                            <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
+                                            <CardBody>
+                                                <CardTitle>{data.title}</CardTitle>
+                                                <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
+                                                <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
+                                            </CardBody>
+                                        </Card>
+                                    </div> */}
                                 </div>
                             </CardGroup>
                     }
                     <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
                         {this.state.page === this.state.lastPage || this.state.lastPage === 0 || this.state.lastPage === 1 ?
-                            <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Load More</Button>
+                            <Button color="secondary" size="large" target="_blank" >Load More</Button>
                             :
-                            <Button style={{ margin: 10 }} onClick={this.fetchMore} color="success" size="large" target="_blank">
+                            <Button onClick={this.fetchMore} color="success" size="large" target="_blank">
                                 Load More</Button>
                         }
                     </div>

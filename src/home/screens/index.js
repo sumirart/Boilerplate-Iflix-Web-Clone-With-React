@@ -10,6 +10,12 @@ import {
 import { Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
 import axios from 'axios';
 
+import Item from '@bit/ranm8.netflix-like.ui.item';
+
+import style from './style.scss';
+// import '../../global.css';
+import './global.css'
+
 // CAROUSEL
 // import { Carousel } from 'react-responsive-carousel';
 // import "../../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
@@ -87,7 +93,7 @@ class Home extends Component {
           </Container>
         </Jumbotron>
 
-        <section id="trending">
+        {/* <section id="trending">
           <Container>
             <div className="row p-3">
               <div className="col-md-12">
@@ -307,7 +313,7 @@ class Home extends Component {
           </Container>
         </section>
 
-        <hr />
+        <hr /> */}
 
         <section id="semua">
           <Container>
@@ -318,20 +324,38 @@ class Home extends Component {
             </div>
             <CardGroup>
               <div className="row" style={{ marginBottom: 30 }}>
+                {/* <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}> */}
                 {
                   this.state.movies.map(data =>
-                    <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
-                      <Card style={{ marginBottom: 20 }}>
-                        <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
-                        <CardBody>
-                          <CardTitle>{data.title}</CardTitle>
-                          <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
-                          <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
-                        </CardBody>
-                      </Card>
+                    //   <Item key={data.id}
+                    //   title={data.title.substr(0, data.title.indexOf('('))}
+                    //   score={data.rating.substr(0, 3)}
+                    //   overview={data.description}
+                    //   backdrop={data.thumbnails}
+                    // />
+                    <div className={style.Item} style={{ backgroundImage: data.thumbnails, backgroundColor: "yellow" }} key={data.id} >
+                      {/* <a href="/" style={{ color: "white", textDecoration: "none" }}> */}
+                        <div className={style.overlay}>
+                          <div className={style.title}>{data.title}</div>
+                          <div className={style.rating}>{data.rating} / 10</div>
+                          <div className={style.plot}>{data.description}</div>
+                        </div>
+                      {/* </a> */}
                     </div>
                   )
                 }
+                {/* </Link> */}
+                {/* previous card clickable */}
+                {/* <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
+                  <Card style={{ marginBottom: 20 }}>
+                    <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
+                    <CardBody>
+                      <CardTitle>{data.title}</CardTitle>
+                      <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
+                      <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
+                    </CardBody>
+                  </Card>
+                </div> */}
               </div>
             </CardGroup>
             <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>

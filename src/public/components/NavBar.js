@@ -47,15 +47,16 @@ class NavBar extends Component {
             })
     }
 
-    handleChange(e){
+    handleChange(e) {
         this.setState({ search: e.target.value });
-        // console.log(e.target.value)
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
-        console.log(this.state.search);
-        this.setState({ toSearch: true });
+        if (this.state.search !== '') {
+            console.log(this.state.search);
+            this.setState({ toSearch: true });
+        }
         // this.setState({search: ''});
     }
 
@@ -63,22 +64,24 @@ class NavBar extends Component {
         if (this.state.toHome === true) {
             return <Redirect to="/" />
         }
-        if (this.state.toSearch === true){
+        if (this.state.toSearch === true) {
             // const route = '/movies?search=' + this.state.search;
             return <Redirect to={`/movies?search=` + this.state.search} />
         }
 
         return (
             <Navbar color="white" light expand="md" style={{ borderBottom: '1px solid grey' }}>
-                <NavbarBrand>
-                    <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold', fontSize: 20 }} >iPlix</Link>
-                </NavbarBrand>
+                {/* <NavbarBrand> */}
+                <Link to="/" className="navbar-brand" style={{ color: 'red', fontWeight: 'bold', fontSize: 20 }} >
+                    <img src="https://fontmeme.com/permalink/181218/ee8f475c180be9f61ff15b7e52e3225e.png" />
+                </Link>
+                {/* </NavbarBrand> */}
                 <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <Form onSubmit={e => this.handleSubmit(e)}>
                             <FormGroup style={{ margin: 0 }}>
-                                <Input type="text" name="search" id="exampleSearch" placeholder="Search" value={this.state.search} onChange={e => this.handleChange(e)}/>
+                                <Input type="text" name="search" id="exampleSearch" placeholder="Search" value={this.state.search} onChange={e => this.handleChange(e)} />
                             </FormGroup>
                         </Form>
 
@@ -92,7 +95,7 @@ class NavBar extends Component {
                                 </DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem>
-                                    <NavLink href="/category/romance">Romance</NavLink>
+                                    <NavLink href="/category/box-office">Box Office</NavLink>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <NavLink href="/category/sci-fi">Sci-Fi</NavLink>
