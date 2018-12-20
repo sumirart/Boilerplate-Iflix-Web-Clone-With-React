@@ -117,7 +117,7 @@ class Home extends Component {
   // fetch movies from server
   getMovies(number) {
     this.setState({ loading: true });
-    axios.get("https://iplix.herokuapp.com/movies?page=" + number)
+    axios.get("http://68.183.177.9:3333/movies?page=" + number)
       .then(res => {
         // console.log(res.data.data);
         this.setState({
@@ -137,7 +137,7 @@ class Home extends Component {
   // fetch trending
   getTrending() {
     this.setState({ loadingSection: true });
-    axios.get("https://iplix.herokuapp.com/movies/trending")
+    axios.get("http://68.183.177.9:3333/movies/trending")
       .then(res => {
         // console.log(res.data.data);
         this.setState({
@@ -155,7 +155,7 @@ class Home extends Component {
   // fetch popular
   getPopular() {
     this.setState({ loadingSection: true });
-    axios.get("https://iplix.herokuapp.com/movies/popular")
+    axios.get("http://68.183.177.9:3333/movies/popular")
       .then(res => {
         // console.log(res.data.data);
         this.setState({
