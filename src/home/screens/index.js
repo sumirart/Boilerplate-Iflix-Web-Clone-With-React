@@ -13,8 +13,8 @@ import axios from 'axios';
 import Hero from './components/Hero';
 
 // import '../../global.css';
+// import './ini.css'
 import './global.css'
-import './ini.css'
 
 // CAROUSEL
 // import { Carousel } from 'react-responsive-carousel';
@@ -25,11 +25,11 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
+    // this.toggle = this.toggle.bind(this);
     this.fetchNextPage = this.fetchNextPage.bind(this);
     this.fetchPreviousPage = this.fetchPreviousPage.bind(this);
     this.state = {
-      isOpen: false,
+      // isOpen: false,
       movies: [],
       page: 1,
       lastPage: 0
@@ -40,17 +40,28 @@ class Home extends Component {
     this.getMovies(1)
   }
 
+
+  // fetch next page
   fetchNextPage() {
     const nextPage = this.state.page + 1;
     this.getMovies(nextPage);
-    // this.setState({ page: nextPage });
+
+    // move to section "semua" after fetching
+    const goToAll = document.getElementById('semua');
+    goToAll.scrollIntoView();
   }
+
+  // fetch previous page
   fetchPreviousPage() {
     const previousPage = this.state.page - 1;
     this.getMovies(previousPage);
-    // this.setState({ page: previousPage });
+
+    // move to section "semua" after fetching
+    const goToAll = document.getElementById('semua');
+    goToAll.scrollIntoView();
   }
 
+  // fetch movies from server
   getMovies(number) {
     axios.get("http://192.168.0.62:3333/movies?page=" + number)
       .then(res => {
@@ -60,15 +71,15 @@ class Home extends Component {
       .catch(err => console.log(err.response))
   }
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+  // toggle() {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
+  // }
 
   render() {
     return (
-      <div>
+      <div style={{ fontFamily: "Lato, sans-serif" }}>
         <div id="myCarousel" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" className="active"></li>
@@ -320,43 +331,42 @@ class Home extends Component {
 
         <section id="semua">
           <Container>
-            <div className="row p-3">
-              <div className="col-md-12">
-                <h2 className="text-left">Semua</h2>
+            {/* trying section title */}
+            {/* <div ref="titlecategory" className="TitleList" data-loaded={this.state.mounted}>
+              <div className="Title">
+                <h1>Semua</h1>
+                <div className="titles-wrapper">
+                  asd
+                    </div>
+              </div>
+            </div> */}
+
+            {/* previous working section title */}
+            <div className="row p-3" style={{ padding: 0 }}>
+              <div className="col-md-12" style={{ padding: 0 }}>
+                <h2 className="text-left" 
+                style={{  fontSize: 40,  fontWeight: 600,  lineHeight: 1.4 }}>Semua</h2>
               </div>
             </div>
+
             <CardGroup>
               <div className="row" style={{ marginBottom: 30 }}>
                 {
                   this.state.movies.map(data =>
-                    //   <Item key={data.id}
-                    //   title={data.title.substr(0, data.title.indexOf('('))}
-                    //   score={data.rating.substr(0, 3)}
-                    //   overview={data.description}
-                    //   backdrop={data.thumbnails}
-                    // />
-                    // <div className='Item' style={{ backgroundColor: 'yellow' }} key={data.id} >
                     <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
                       <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                         <div className="overlay">
                           <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
-                          <div className="rating">{data.rating.substr(0, 3)} / 10</div>
-                          <div className="plot">{data.description.substr(0, 50) + '..'}</div>
+                          <div className="rating">
+                            {data.rating ?
+                              data.rating.substr(0, 3) + ' / 10'
+                              : 'no rating'
+                            }
+                          </div>
+                          <div className="plot">{data.description.substr(0, 100) + '..'}</div>
                         </div>
                       </Link>
                     </div>
-                    // <Item key={data.id} slug={data.slug} data={data} title={data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')} score={data.rating.substr(0, 3)} overview={data.description.substr(0, 50) + '..'} backdrop='http://image.tmdb.org/t/p/original/ydUpl3QkVUCHCq1VWvo2rW4Sf7y.jpg' />
-
-                    // <Item key={data.id} title={data.title.replace('Nonton ', '')} score={data.rating.substr(0, 3)} overview={data.description.substr(0, 50) + '..'} backdrop='http://image.tmdb.org/t/p/original/ydUpl3QkVUCHCq1VWvo2rW4Sf7y.jpg' />
-                    // <div className='Item' style={{ backgroundImage: 'https://ganol.si/wp-content/uploads/2018/07/The-First-Purge-2018-215x323.jpg' }} key={data.id} >
-                    //   <a href="/" style={{ color: "white", textDecoration: "none" }}>
-                    //     <div className='overlay'>
-                    //       <div className='title'>{data.title}</div>
-                    //       <div className='rating'>{data.rating}</div>
-                    //       <div className='plot'>{data.description}</div>
-                    //     </div>
-                    //   </a>
-                    // </div>
                   )
                 }
                 {/* previous card clickable */}
@@ -372,6 +382,7 @@ class Home extends Component {
                 </div> */}
               </div>
             </CardGroup>
+
             <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
               {this.state.page === 1 ?
                 <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Sebelumnya</Button>

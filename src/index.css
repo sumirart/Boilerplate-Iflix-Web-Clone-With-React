@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
+
 body {
   background: #221f1f;
   color: #ffffff;
@@ -281,13 +282,16 @@ p {
 }
 
 .Item {
-  width: calc(20% - 10px);
+  width: 200px;
+  /* width: calc(20% - 10px); */
+  /* min-width: calc(20% - 10px); */
   min-width: calc(20% - 10px);
   background-color: #000000;
   flex: 1 0 auto;
   background-position: center;
   background-size: 100%;
-  height: 200px;
+  /* height: 200px; */
+  height: 400px;
   background-repeat: no-repeat;
   overflow: hidden;
   margin-right: 10px;
@@ -323,6 +327,8 @@ p {
 }
 .Item .overlay .rating {
   font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
   opacity: 0;
   transition: opacity 0.25s ease 0.125s;
 }

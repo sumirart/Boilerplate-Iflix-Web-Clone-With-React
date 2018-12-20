@@ -52,7 +52,7 @@ class Search extends Component {
     render() {
         const values = queryString.parse(this.props.location.search)
         return (
-            <section id="semua" style={{ marginTop: "5vh", marginBottom: "5vh" }}>
+            <section id="semua" style={{ marginTop: 90, marginBottom: "5vh" }}>
                 <Container>
                     <div className="row p-3">
                         <div className="col-md-12">
