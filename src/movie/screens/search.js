@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import axios from 'axios';
 import LoadingOverlay from 'react-loading-overlay';
 
-import { Container, Button, Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
+import { Container, Button, CardGroup } from 'reactstrap'
 
 class Search extends Component {
     constructor(props) {

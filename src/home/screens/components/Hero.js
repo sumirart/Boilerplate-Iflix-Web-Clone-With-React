@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 
-class HeroButton extends Component {
-    render(){
-        return(
-            <a href = "/" className = "Button" data-primary={ this.props.primary }> { this.props.text }</a >
-        )
-    }
-}
 
 
 class Hero extends Component {

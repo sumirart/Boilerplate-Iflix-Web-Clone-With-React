@@ -3,9 +3,6 @@ import { withRouter } from 'react-router-dom'
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
 
-// import action
-import { logout } from '../../public/redux/actions/auth';
-
 // import Header from './NavBar/Index';
 import Logo from './NavBar/Logo';
 import Navigation from './NavBar/Navigation';

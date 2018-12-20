@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import { Container, Button, Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
+import { Container, Button, CardGroup } from 'reactstrap'
 import axios from 'axios';
 import LoadingOverlay from 'react-loading-overlay';
 
