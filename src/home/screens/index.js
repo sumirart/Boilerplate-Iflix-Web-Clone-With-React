@@ -107,11 +107,15 @@ class Home extends Component {
           </a>
         </div>
 
-        {/* <section id="trending">
+
+        {/* section trending*/}
+        <section id="trending">
           <Container>
             <div className="row p-3">
               <div className="col-md-12">
-                <h2 className="text-left">Trending</h2>
+                <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4 }}>
+                  Trending
+                </h2>
               </div>
             </div>
             <div className="row" style={{ marginBottom: 30 }}>
@@ -181,11 +185,14 @@ class Home extends Component {
 
         <hr />
 
+        {/* section popular */}
         <section id="populer">
           <Container>
             <div className="row p-3">
               <div className="col-md-12">
-                <h2 className="text-left">Populer</h2>
+                <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4 }}>
+                  Popular
+                </h2>
               </div>
             </div>
             <div className="row" style={{ marginBottom: 30 }}>
@@ -255,87 +262,13 @@ class Home extends Component {
 
         <hr />
 
-        <section id="terbaru">
-          <Container>
-            <div className="row p-3">
-              <div className="col-md-12">
-                <h2 className="text-left">Terbaru</h2>
-              </div>
-            </div>
-            <div className="row" style={{ marginBottom: 30 }}>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-            </div>
-          </Container>
-        </section>
-
-        <hr /> */}
-
+        {/* section all movies*/}
         <section id="semua">
           <Container>
-            {/* section title */}
             <div className="row p-3" style={{ padding: 0 }}>
               <div className="col-md-12" style={{ padding: 0 }}>
-                <h2 className="text-left" 
-                style={{  fontSize: 30,  fontWeight: 600,  lineHeight: 1.4 }}>Semua</h2>
+                <h2 className="text-left"
+                  style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4 }}>All Movies</h2>
               </div>
             </div>
 

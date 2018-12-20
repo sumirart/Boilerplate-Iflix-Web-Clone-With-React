@@ -16,6 +16,12 @@ class Movie extends Component {
     componentDidMount() {
         this.getMovies(this.props.location.state.id)
     }
+    componentDidUpdate(prevProps){
+        if(this.props.location.state.id !== prevProps.location.state.id){
+            console.log('props change')
+            this.getMovies(this.props.location.state.id)
+        }
+    }
 
 
     getMovies(id) {
@@ -41,71 +47,71 @@ class Movie extends Component {
 
         const data = this.props.location.state;
         return (
-            <div style={{ marginTop: 100, marginBottom: "5vh" }}>
-                <Container>
-                    <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
+            // <div style={{ marginTop: 100, marginBottom: "5vh" }}>
+            <Container style={{ marginTop: 100, marginBottom: "5vh" }}>
+                <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
 
-                        <Iframe url={data.embed_url}
-                            height="70vh"
-                            position="relative"
-                            id="myId"
-                            className="myClassname"
-                            // height="100%"
-                            // position="absolute"
-                            width="100%"
-                            styles={{ maxHeight: "800px" }}
-                            allowFullScreen />
-                    </div>
-                    <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</h2>
-                    <hr style={{ borderTop: "3px solid white" }} />
-                    <Row>
-                        <Col style={{ marginTop: 10, marginBottom: 20 }}>
-                            <p>{data.description}</p>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs="3" >
-                            <img src={data.thumbnails} alt={data.title} style={{ width: "100%", borderRadius: 5 }} />
-                        </Col>
-                        <Col xs="auto">
-                            <p>Rating: {data.rating ? data.rating.substr(0, 3) + ' / 10' : 'no rating'} </p>
-                            <p>Genre: {data.genre}</p>
-                            <p>Directors: {data.director}</p>
-                            <p>Writers: {data.writers}</p>
-                            {/* <p>Description: {data.description}</p> */}
-                        </Col>
-                    </Row>
+                    <Iframe url={data.embed_url}
+                        height="70vh"
+                        position="relative"
+                        id="myId"
+                        className="myClassname"
+                        // height="100%"
+                        // position="absolute"
+                        width="100%"
+                        styles={{ maxHeight: "800px" }}
+                        allowFullScreen />
+                </div>
+                <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</h2>
+                <hr style={{ borderTop: "3px solid white" }} />
+                <Row>
+                    <Col style={{ marginTop: 10, marginBottom: 20 }}>
+                        <p>{data.description}</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs="3" >
+                        <img src={data.thumbnails} alt={data.title} style={{ width: "100%", borderRadius: 5 }} />
+                    </Col>
+                    <Col xs="auto">
+                        <p>Rating: {data.rating ? data.rating.substr(0, 3) + ' / 10' : 'no rating'} </p>
+                        <p>Genre: {data.genre}</p>
+                        <p>Directors: {data.director}</p>
+                        <p>Writers: {data.writers}</p>
+                        {/* <p>Description: {data.description}</p> */}
+                    </Col>
+                </Row>
 
-                    <Row style={{ marginTop: 30 }}>
-                        <Col>
-                            <h2 className="text-left" style={{ fontSize: 20, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>Related</h2>
-                        </Col>
-                    </Row>
-                    <hr style={{ borderTop: "1px solid white" }} />
-                    <CardGroup>
-                        <div className="row" style={{ marginBottom: 30, marginLeft: 0 }}>
-                            {
-                                this.state.movies.slice(0, 5).map(data =>
-                                    <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
-                                        <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
-                                            <div className="overlay">
-                                                <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
-                                                <div className="rating">
-                                                    {data.rating ?
-                                                        data.rating.substr(0, 3) + ' / 10'
-                                                        : 'no rating'
-                                                    }
-                                                </div>
-                                                <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                <Row style={{ marginTop: 30 }}>
+                    <Col>
+                        <h2 className="text-left" style={{ fontSize: 20, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>Related</h2>
+                    </Col>
+                </Row>
+                <hr style={{ borderTop: "1px solid white" }} />
+                <CardGroup>
+                    <div className="row" style={{ marginBottom: 30, marginLeft: 0 }}>
+                        {
+                            this.state.movies.slice(0, 5).map(data =>
+                                <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', height: 250, width: 214 }} >
+                                    <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
+                                        <div className="overlay">
+                                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                                            <div className="rating">
+                                                {data.rating ?
+                                                    data.rating.substr(0, 3) + ' / 10'
+                                                    : 'no rating'
+                                                }
                                             </div>
-                                        </Link>
-                                    </div>
-                                )
-                            }
-                        </div>
-                    </CardGroup>
-                </Container>
-            </div>
+                                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )
+                        }
+                    </div>
+                </CardGroup>
+            </Container>
+            // </div>
         );
     }
 }
