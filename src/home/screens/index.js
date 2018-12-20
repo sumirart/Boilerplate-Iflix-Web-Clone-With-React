@@ -117,7 +117,7 @@ class Home extends Component {
   // fetch movies from server
   getMovies(number) {
     this.setState({ loading: true });
-    axios.get("http://iplix.herokuapp.com/movies?page=" + number)
+    axios.get("https://iplix.herokuapp.com/movies?page=" + number)
       .then(res => {
         // console.log(res.data.data);
         this.setState({
@@ -137,7 +137,7 @@ class Home extends Component {
   // fetch trending
   getTrending() {
     this.setState({ loadingSection: true });
-    axios.get("http://iplix.herokuapp.com/movies/trending")
+    axios.get("https://iplix.herokuapp.com/movies/trending")
       .then(res => {
         // console.log(res.data.data);
         this.setState({
@@ -155,7 +155,7 @@ class Home extends Component {
   // fetch popular
   getPopular() {
     this.setState({ loadingSection: true });
-    axios.get("http://iplix.herokuapp.com/movies/popular")
+    axios.get("https://iplix.herokuapp.com/movies/popular")
       .then(res => {
         // console.log(res.data.data);
         this.setState({
@@ -351,18 +351,18 @@ class Home extends Component {
   }
 }
 
-class Item extends Component {
-  render() {
-    return (
-      <div className="Item" style={{ backgroundImage: 'url(' + this.props.backdrop + ')' }} >
-        <div className="overlay">
-          <div className="title" style={{ lineHeight: 1.2 }}>{this.props.title}</div>
-          <div className="rating">{this.props.score} / 10</div>
-          <div className="plot">{this.props.overview}</div>
-        </div>
-      </div>
-    );
-  }
-}
+// class Item extends Component {
+//   render() {
+//     return (
+//       <div className="Item" style={{ backgroundImage: 'url(' + this.props.backdrop + ')' }} >
+//         <div className="overlay">
+//           <div className="title" style={{ lineHeight: 1.2 }}>{this.props.title}</div>
+//           <div className="rating">{this.props.score} / 10</div>
+//           <div className="plot">{this.props.overview}</div>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 
 export default Home;

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 class Hero extends Component {
     render() {
         const data = this.props.data;
-        console.log(data);
+        // console.log(data);
         return (
             <div id="hero" className="Hero" style={{ backgroundImage: 'url(' + this.props.backgroundImage + ')' }}>
                 <div className="content">
