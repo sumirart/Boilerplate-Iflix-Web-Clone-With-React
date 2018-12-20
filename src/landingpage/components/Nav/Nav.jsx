@@ -1,8 +1,5 @@
 import React from 'react';
-
 import styled, { css } from 'styled-components';
-
-import netflixlogo from './img/logo.svg';
 
 const Nav = styled.nav`
     height: 90px;

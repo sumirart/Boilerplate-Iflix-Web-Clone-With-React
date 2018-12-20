@@ -109,7 +109,7 @@ class Category extends Component {
                         {this.state.page === this.state.lastPage || this.state.lastPage === 0 || this.state.lastPage === 1 ?
                             <Button color="secondary" size="large" target="_blank" >Load More</Button>
                             :
-                            <Button onClick={this.fetchMore} color="success" size="large" target="_blank">
+                            <Button onClick={this.fetchMore} color="danger" size="large" target="_blank">
                                 Load More</Button>
                         }
                     </div>

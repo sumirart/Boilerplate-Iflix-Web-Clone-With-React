@@ -4,7 +4,6 @@ import {
   Container,
   Row,
   Col,
-  Jumbotron,
   Button
 } from 'reactstrap';
 import { Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
@@ -12,8 +11,6 @@ import axios from 'axios';
 
 import Hero from './components/Hero';
 
-// import '../../global.css';
-// import './ini.css'
 import './global.css'
 
 // CAROUSEL
@@ -32,7 +29,8 @@ class Home extends Component {
       // isOpen: false,
       movies: [],
       page: 1,
-      lastPage: 0
+      lastPage: 0,
+      loading: false
     };
   }
 
@@ -63,12 +61,22 @@ class Home extends Component {
 
   // fetch movies from server
   getMovies(number) {
+    this.setState({ loading: true});
     axios.get("http://192.168.0.62:3333/movies?page=" + number)
       .then(res => {
-        // console.log(res.data.data);
-        this.setState({ movies: res.data.data, lastPage: res.data.lastPage, page: number });
+        console.log(res.data.data);
+        this.setState({ 
+          movies: res.data.data,
+          lastPage: res.data.lastPage,
+          page: number,
+          loading: false
+        });
+        console.log(this.state)
       })
-      .catch(err => console.log(err.response))
+      .catch(err => {
+        alert(err.response);
+        this.setState({ loading: false })
+      })
   }
 
   // toggle() {
@@ -274,7 +282,9 @@ class Home extends Component {
 
             <CardGroup>
               <div className="row" style={{ marginBottom: 30 }}>
-                {
+              {
+                this.state.loading === true ? <div className="text-center">Loading...</div> :
+                
                   this.state.movies.map(data =>
                     <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
                       <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
@@ -291,33 +301,23 @@ class Home extends Component {
                       </Link>
                     </div>
                   )
-                }
-                {/* previous card clickable */}
-                {/* <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
-                  <Card style={{ marginBottom: 20 }}>
-                    <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
-                    <CardBody>
-                      <CardTitle>{data.title}</CardTitle>
-                      <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
-                      <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
-                    </CardBody>
-                  </Card>
-                </div> */}
+                
+              }
               </div>
             </CardGroup>
 
             <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
               {this.state.page === 1 ?
-                <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Sebelumnya</Button>
+                <Button style={{ margin: 10 }} size="large" target="_blank" >Before</Button>
                 :
-                <Button style={{ margin: 10 }} onClick={this.fetchPreviousPage} color="success" size="large" target="_blank">
-                  Sebelumnya</Button>
+                <Button style={{ margin: 10 }} onClick={this.fetchPreviousPage} color="danger" size="large" target="_blank">
+                  Before</Button>
               }
-              {this.state.page === this.state.lastPage ?
-                <Button style={{ margin: 10 }} color="secondary" size="large" target="_blank" >Selanjutnya</Button>
+              {this.state.page === this.state.lastPage || this.state.lastPage === 0 ?
+                <Button style={{ margin: 10 }} size="large" target="_blank" >Next</Button>
                 :
-                <Button style={{ margin: 10 }} onClick={this.fetchNextPage} color="success" size="large" target="_blank">
-                  Selanjutnyaa</Button>
+                <Button style={{ margin: 10 }} onClick={this.fetchNextPage} color="danger" size="large" target="_blank">
+                  Next</Button>
               }
             </div>
           </Container>
