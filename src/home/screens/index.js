@@ -32,6 +32,7 @@ class Home extends Component {
       popular: [],
       page: 1,
       lastPage: 0,
+      loadingSection: false,
       loading: false
     };
   }
@@ -85,37 +86,37 @@ class Home extends Component {
 
   // fetch trending
   getTrending() {
-    this.setState({ loading: true });
+    this.setState({ loadingSection: true });
     axios.get("http://192.168.0.62:3333/movies/trending")
       .then(res => {
         console.log(res.data.data);
         this.setState({
           trending: res.data.data,
-          loading: false
+          loadingSection: false
         });
         console.log(this.state)
       })
       .catch(err => {
         alert(err.response);
-        this.setState({ loading: false })
+        this.setState({ loadingSection: false })
       })
   }
 
   // fetch popular
   getPopular() {
-    this.setState({ loading: true });
-    axios.get("http://192.168.0.62:3333/movies/trending")
+    this.setState({ loadingSection: true });
+    axios.get("http://192.168.0.62:3333/movies/popular")
       .then(res => {
         console.log(res.data.data);
         this.setState({
           popular: res.data.data,
-          loading: false
+          loadingSection: false
         });
         console.log(this.state)
       })
       .catch(err => {
         alert(err.response);
-        this.setState({ loading: false })
+        this.setState({ loadingSection: false })
       })
   }
 
@@ -157,7 +158,7 @@ class Home extends Component {
         </div>
 
 
-        {/* section trending*/}
+        {/* section trending */}
         <section id="trending">
           <Container>
             <div className="row p-3">
@@ -167,75 +168,37 @@ class Home extends Component {
                 </h2>
               </div>
             </div>
-            <div className="row" style={{ marginBottom: 30 }}>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
+            <CardGroup>
+              <div className="row" style={{ marginBottom: 30 }}>
+                {
+                  this.state.loadingSection === true ? <div className="text-center">Loading...</div> :
+
+                    this.state.trending.slice(0,5).map(data =>
+                      <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
+                        <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
+                          <div className="overlay">
+                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                            <div className="rating">
+                              {data.rating ?
+                                data.rating.substr(0, 3) + ' / 10'
+                                : 'no rating'
+                              }
+                            </div>
+                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                          </div>
+                        </Link>
+                      </div>
+                    )
+                }
               </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-              <div className="col-sm-6 col-md-4 col-lg-2">
-                <Card style={{ marginBottom: 5 }}>
-                  <CardImg top width="100%" src="https://ganol.si/wp-content/uploads/2018/12/Spider-Man-Into-the-Spider-Verse-2018-218x323.jpg" alt="ReactJS + Firebase" />
-                  <CardBody>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>Card Text</CardText>
-                    <Link to="/movie/123" className="btn btn-primary btn-sm float-right">Tonton</Link>
-                  </CardBody>
-                </Card>
-              </div>
-            </div>
+            </CardGroup>
           </Container>
         </section>
 
         <hr />
 
         {/* section popular */}
-        <section id="populer">
+        <section id="popular">
           <Container>
             <div className="row p-3">
               <div className="col-md-12">
@@ -247,7 +210,7 @@ class Home extends Component {
             <CardGroup>
               <div className="row" style={{ marginBottom: 30 }}>
                 {
-                  this.state.loading === true ? <div className="text-center">Loading...</div> :
+                  this.state.loadingSection === true ? <div className="text-center">Loading...</div> :
 
                     this.state.popular.slice(0,5).map(data =>
                       <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
