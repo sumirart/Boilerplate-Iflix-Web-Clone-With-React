@@ -1,12 +1,44 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, CardGroup } from 'reactstrap';
 import Iframe from 'react-iframe'
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 class Movie extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            movies: [],
+        };
+    }
+
+    componentDidMount() {
+        this.getMovies(this.props.location.state.id)
+    }
+
+
+    getMovies(id) {
+        axios.get("http://192.168.0.62:3333/movies/" + id + "/related")
+            .then(res => {
+                // console.log(res.data);
+                // this.setState({ lastPage: res.data.lastPage, page: number });
+                this.setState({ movies: res.data.data });
+            })
+            .catch(err => alert(err.response))
+    }
 
     render() {
-        console.log(this.props.location.state)
+        // if no movies
+        if (this.props.location.state === undefined) {
+            return <Redirect to="/" />
+            // alert("owww")
+        }
+
+        // console.log(this.props)
+        // console.log(this.props.location.state.id)
+        // console.log(this.props.location.pathname) //"/movie/Nonton-"
+
         const data = this.props.location.state;
         return (
             <div style={{ marginTop: 100, marginBottom: "5vh" }}>
@@ -20,37 +52,58 @@ class Movie extends Component {
                             className="myClassname"
                             // height="100%"
                             // position="absolute"
-                            // width="100%"
+                            width="100%"
                             styles={{ maxHeight: "800px" }}
                             allowFullScreen />
                     </div>
                     <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</h2>
                     <hr style={{ borderTop: "3px solid white" }} />
                     <Row>
-                        <Col style={{ marginTop: 10, marginBottom: 20  }}>
-                            <p>Description: {data.description}</p>
+                        <Col style={{ marginTop: 10, marginBottom: 20 }}>
+                            <p>{data.description}</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs="3" >
-                            <img src={data.thumbnails} alt={data.title} style={{ width: "100%" }} />
+                            <img src={data.thumbnails} alt={data.title} style={{ width: "100%", borderRadius: 5 }} />
                         </Col>
-                        <Col xs="auto" style={{ fontWeight: "bold" }}>
-                            <p>Rating: {data.rating ?
-                                data.rating.substr(0, 3) + ' / 10'
-                                : 'no rating'
-                            }</p>
+                        <Col xs="auto">
+                            <p>Rating: {data.rating ? data.rating.substr(0, 3) + ' / 10' : 'no rating'} </p>
                             <p>Genre: {data.genre}</p>
-                            <p>Description: {data.description}</p>
-                            <p>Writers: {data.writers}</p>
                             <p>Directors: {data.director}</p>
-                            <p>Genre: {data.genre}</p>
-                            {/* <p>Country: {data.country}</p>
-                            <p>Language: {data.language}</p>
-                            <p>Release: {data.release}</p> */}
+                            <p>Writers: {data.writers}</p>
+                            {/* <p>Description: {data.description}</p> */}
                         </Col>
                     </Row>
 
+                    <Row style={{ marginTop: 30 }}>
+                        <Col>
+                            <h2 className="text-left" style={{ fontSize: 20, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>Related</h2>
+                        </Col>
+                    </Row>
+                    <hr style={{ borderTop: "1px solid white" }} />
+                    <CardGroup>
+                        <div className="row" style={{ marginBottom: 30, marginLeft: 0 }}>
+                            {
+                                this.state.movies.slice(0, 5).map(data =>
+                                    <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
+                                        <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
+                                            <div className="overlay">
+                                                <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                                                <div className="rating">
+                                                    {data.rating ?
+                                                        data.rating.substr(0, 3) + ' / 10'
+                                                        : 'no rating'
+                                                    }
+                                                </div>
+                                                <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                                            </div>
+                                        </Link>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </CardGroup>
                 </Container>
             </div>
         );
