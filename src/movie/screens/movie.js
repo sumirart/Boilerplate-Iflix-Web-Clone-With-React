@@ -10,6 +10,7 @@ class Movie extends Component {
         super(props);
         this.state = {
             movies: [],
+            loading: false
         };
     }
 
@@ -25,13 +26,17 @@ class Movie extends Component {
 
 
     getMovies(id) {
+        this.setState({ loading: true });
         axios.get("http://192.168.0.62:3333/movies/" + id + "/related")
             .then(res => {
                 // console.log(res.data);
                 // this.setState({ lastPage: res.data.lastPage, page: number });
-                this.setState({ movies: res.data.data });
+                this.setState({ movies: res.data.data, loading: false });
             })
-            .catch(err => alert(err.response))
+            .catch(err => {
+                alert("Connection to server error, please try again!");
+                this.setState({ loading: false })
+            })
     }
 
     render() {
@@ -90,7 +95,7 @@ class Movie extends Component {
                 <hr style={{ borderTop: "1px solid white" }} />
                 <CardGroup>
                     <div className="row" style={{ marginBottom: 30, marginLeft: 0 }}>
-                        {
+                        { this.state.loading === true ? <div className="text-center">Loading...</div> :
                             this.state.movies.slice(0, 5).map(data =>
                                 <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', height: 250, width: 214 }} >
                                     <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>

@@ -25,13 +25,6 @@ class NavBar extends Component {
         };
     }
 
-    // toggle() {
-    //     this.setState({
-    //         isOpen: !this.state.isOpen
-    //     });
-    // }
-
-
     render() {
         if(this.props.location.pathname === "/login" || this.props.location.pathname === "/register"){
             return null

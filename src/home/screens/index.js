@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import {
   Container,
-  Row,
-  Col,
-  Button
+  Button,
+  CardGroup
 } from 'reactstrap';
-import { Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
 import axios from 'axios';
 
 import Hero from './components/Hero';
@@ -79,7 +77,7 @@ class Home extends Component {
         // console.log(this.state)
       })
       .catch(err => {
-        alert(err.response);
+        alert("Connection to server error, please try again!");
         this.setState({ loading: false })
       })
   }
@@ -97,7 +95,7 @@ class Home extends Component {
         console.log(this.state)
       })
       .catch(err => {
-        alert(err.response);
+        alert("Connection to server error, please try again!");
         this.setState({ loadingSection: false })
       })
   }
@@ -115,17 +113,10 @@ class Home extends Component {
         console.log(this.state)
       })
       .catch(err => {
-        alert(err.response);
+        alert("Connection to server error, please try again!");
         this.setState({ loadingSection: false })
       })
   }
-
-
-  // toggle() {
-  //   this.setState({
-  //     isOpen: !this.state.isOpen
-  //   });
-  // }
 
   render() {
     return (
@@ -157,7 +148,6 @@ class Home extends Component {
           </a>
         </div>
 
-
         {/* section trending */}
         <section id="trending">
           <Container>
@@ -174,7 +164,7 @@ class Home extends Component {
                   this.state.loadingSection === true ? <div className="text-center">Loading...</div> :
 
                     this.state.trending.slice(0,5).map(data =>
-                      <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
+                      <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', width: 218 }} >
                         <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                           <div className="overlay">
                             <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
@@ -213,7 +203,7 @@ class Home extends Component {
                   this.state.loadingSection === true ? <div className="text-center">Loading...</div> :
 
                     this.state.popular.slice(0,5).map(data =>
-                      <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
+                      <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', width: 218 }} >
                         <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                           <div className="overlay">
                             <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>

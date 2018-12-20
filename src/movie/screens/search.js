@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import queryString from 'query-string';
 import axios from 'axios';
+import LoadingOverlay from 'react-loading-overlay';
 
 import { Container, Button, Card, CardBody, CardTitle, CardText, CardImg, CardGroup } from 'reactstrap'
-import Item from '@bit/ranm8.netflix-like.ui.item';
 
 class Search extends Component {
     constructor(props) {
@@ -13,7 +13,8 @@ class Search extends Component {
         this.state = {
             movies: [],
             page: 1,
-            lastPage: 0
+            lastPage: 0,
+            loading: false
         };
     }
 
@@ -27,24 +28,31 @@ class Search extends Component {
     }
 
     getMovies(number) {
+        this.setState({ loading: true });
         const values = queryString.parse(this.props.location.search);
         if (this.state.movies === undefined || this.state.movies.length == 0) {
             axios.get("http://192.168.0.62:3333/movies?search=" + values.search + "&page=" + number)
                 .then(res => {
                     // console.log(res.data);
                     this.setState({ lastPage: res.data.lastPage, page: number });
-                    this.setState({ movies: res.data.data });
+                    this.setState({ movies: res.data.data, loading: false });
                 })
-                .catch(err => alert(err.response))
+                .catch(err => {
+                    alert("Connection to server error, please try again!");
+                    this.setState({ loading: false })
+                })
         } else {
             axios.get("http://192.168.0.62:3333/movies?search=" + values.search + "&page=" + number)
                 .then(res => {
                     const pushMovie = [...this.state.movies, ...res.data.data];
                     // console.log(pushMovie);
                     this.setState({ lastPage: res.data.lastPage, page: number });
-                    this.setState({ movies: pushMovie });
+                    this.setState({ movies: pushMovie, loading: false });
                 })
-                .catch(err => alert(err.response))
+                .catch(err => {
+                    alert("Connection to server error, please try again!");
+                    this.setState({ loading: false })
+                })
         }
 
     }
@@ -69,7 +77,11 @@ class Search extends Component {
                                             style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4 }}>Search for: {values.search} </h2>
                                     </div>
                                 </div>
-                                {
+                                {this.state.loading === true ? <LoadingOverlay
+                                    active={this.state.loading}
+                                    spinner
+                                    text='Loading...'
+                                /> :
                                     this.state.lastPage === 0 ?
                                         <div className="row p-3">
                                             <div className="col-md-12">

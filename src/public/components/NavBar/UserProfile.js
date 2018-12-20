@@ -47,16 +47,16 @@ class UserProfile extends Component {
 							{
 								this.state.show ?
 									<div className="UserProfile-menu" style={{ display: "block" }}>
-										<div className="UserProfileSwitch">
+										{/* <div className="UserProfileSwitch">
 											<ul>
 												<li>
 													<div className="UserProfile-image">
 														<img src="https://randomuser.me/api/portraits/men/3.jpg" />
 													</div>
-													{/* <div style={{ textTransform: 'capitalize' }}>{this.props.auth.user[0].name}</div> */}
+													<div style={{ textTransform: 'capitalize' }}>{this.props.auth.user[0].name}</div>
 												</li>
 											</ul>
-										</div>
+										</div> */}
 										<div className="UserNavigation">
 											<ul>
 												<li>Your Account</li>
