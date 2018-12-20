@@ -30,7 +30,7 @@ class Movie extends Component {
 
     getMoviesRelated(id) {
         this.setState({ loading: true });
-        axios.get("http://192.168.0.62:3333/movies/" + id + "/related")
+        axios.get("http://iplix.herokuapp.com/movies/" + id + "/related")
             .then(res => {
                 // console.log(res.data);
                 // this.setState({ lastPage: res.data.lastPage, page: number });
