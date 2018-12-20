@@ -40,7 +40,7 @@ class Search extends Component {
             axios.get("http://192.168.0.62:3333/movies?search=" + values.search + "&page=" + number)
                 .then(res => {
                     const pushMovie = [...this.state.movies, ...res.data.data];
-                    console.log(pushMovie);
+                    // console.log(pushMovie);
                     this.setState({ lastPage: res.data.lastPage, page: number });
                     this.setState({ movies: pushMovie });
                 })

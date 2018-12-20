@@ -65,7 +65,7 @@ class Home extends Component {
   getMovies(number) {
     axios.get("http://192.168.0.62:3333/movies?page=" + number)
       .then(res => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.setState({ movies: res.data.data, lastPage: res.data.lastPage, page: number });
       })
       .catch(err => console.log(err.response))
@@ -335,7 +335,7 @@ class Home extends Component {
             <div className="row p-3" style={{ padding: 0 }}>
               <div className="col-md-12" style={{ padding: 0 }}>
                 <h2 className="text-left" 
-                style={{  fontSize: 40,  fontWeight: 600,  lineHeight: 1.4 }}>Semua</h2>
+                style={{  fontSize: 30,  fontWeight: 600,  lineHeight: 1.4 }}>Semua</h2>
               </div>
             </div>
 

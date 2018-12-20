@@ -38,7 +38,7 @@ class Category extends Component {
             axios.get("http://192.168.0.62:3333/movies/" + this.props.match.params.id + "?page=" + number)
                 .then(res => {
                     const pushMovie = [...this.state.movies, ...res.data.data];
-                    console.log(pushMovie);
+                    // console.log(pushMovie);
                     this.setState({ lastPage: res.data.lastPage, page: number });
                     this.setState({ movies: pushMovie });
                 })
@@ -54,8 +54,7 @@ class Category extends Component {
                 <Container>
                     <div className="row p-3" style={{ padding: 0 }}>
                         <div className="col-md-12" style={{ padding: 0 }}>
-                            <h2 className="text-left"
-                                style={{ fontSize: 40, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>Kategori: {this.props.match.params.id}</h2>
+                            <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>Kategori: {this.props.match.params.id}</h2>
                         </div>
                     </div>
 

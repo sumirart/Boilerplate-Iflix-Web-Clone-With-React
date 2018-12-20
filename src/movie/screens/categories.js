@@ -17,7 +17,7 @@ class Categories extends Component {
     // }
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             null
             // <div style={{ marginTop: "5vh", marginBottom: "5vh" }}>
