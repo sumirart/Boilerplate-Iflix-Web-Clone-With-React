@@ -52,16 +52,23 @@ class Category extends Component {
         return (
             <section id="semua" style={{ marginTop: 90, marginBottom: "5vh" }}>
                 <Container>
-                <div className="row p-3">
+                    <div className="row p-3" style={{ padding: 0 }}>
+                        <div className="col-md-12" style={{ padding: 0 }}>
+                            <h2 className="text-left"
+                                style={{ fontSize: 40, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>Kategori: {this.props.match.params.id}</h2>
+                        </div>
+                    </div>
+
+                    {/* <div className="row p-3">
                         <div className="col-md-12">
                             <h2 className="text-left">Kategori: {this.props.match.params.id} </h2>
                         </div>
-                    </div>
+                    </div> */}
                     {
                         this.state.lastPage === 0 ?
                             <div className="row p-3">
                                 <div className="col-md-12">
-                                    <h2 className="text-left">No movies found!</h2>
+                                    <h1 className="text-center">No movies found!</h1>
                                 </div>
                             </div>
                             :
@@ -69,17 +76,31 @@ class Category extends Component {
                                 <div className="row" style={{ marginBottom: 10 }}>
                                     {
                                         this.state.movies.map(data =>
-                                            <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
-                                                <Card style={{ marginBottom: 20 }}>
-                                                    <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
-                                                    <CardBody>
-                                                        <CardTitle>{data.title}</CardTitle>
-                                                        <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
-                                                        {/* <Link to="/movie/id" className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link> */}
-                                                        <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
-                                                    </CardBody>
-                                                </Card>
+                                            <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
+                                                <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
+                                                    <div className="overlay">
+                                                        <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                                                        <div className="rating">
+                                                            {data.rating ?
+                                                                data.rating.substr(0, 3) + ' / 10'
+                                                                : 'no rating'
+                                                            }
+                                                        </div>
+                                                        <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                                                    </div>
+                                                </Link>
                                             </div>
+                                            // <div className="col-sm-6 col-md-4 col-lg-2" key={data.id}>
+                                            //     <Card style={{ marginBottom: 20 }}>
+                                            //         <CardImg top width="100%" src={data.thumbnails} alt={data.title} />
+                                            //         <CardBody>
+                                            //             <CardTitle>{data.title}</CardTitle>
+                                            //             <CardText style={{ maxHeight: 200, overflow: "hidden" }}>{data.description}</CardText>
+                                            //             {/* <Link to="/movie/id" className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link> */}
+                                            //             <Link to={{ pathname: '/movie/' + data.slug, state: data }} className="btn btn-primary btn-sm float-right" data={data} >Tonton</Link>
+                                            //         </CardBody>
+                                            //     </Card>
+                                            // </div>
                                         )
                                     }
                                 </div>

@@ -331,17 +331,7 @@ class Home extends Component {
 
         <section id="semua">
           <Container>
-            {/* trying section title */}
-            {/* <div ref="titlecategory" className="TitleList" data-loaded={this.state.mounted}>
-              <div className="Title">
-                <h1>Semua</h1>
-                <div className="titles-wrapper">
-                  asd
-                    </div>
-              </div>
-            </div> */}
-
-            {/* previous working section title */}
+            {/* section title */}
             <div className="row p-3" style={{ padding: 0 }}>
               <div className="col-md-12" style={{ padding: 0 }}>
                 <h2 className="text-left" 
