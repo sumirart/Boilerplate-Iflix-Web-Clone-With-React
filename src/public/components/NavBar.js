@@ -28,8 +28,6 @@ class NavBar extends Component {
     render() {
         if(this.props.location.pathname === "/login" || this.props.location.pathname === "/register"){
             return null
-        } else if(this.props.auth.user.length === 0){
-        	return <Redirect to="/landing-page" style={{ marginTop: -90}} />
         }
 
         if (this.state.toHome === true) {
