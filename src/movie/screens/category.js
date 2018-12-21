@@ -28,7 +28,7 @@ class Category extends Component {
     getMovies(number) {
         this.setState({ loading: true });
         // const values = queryString.parse(this.props.location.search);
-        if (this.state.movies === undefined || this.state.movies.length == 0) {
+        if (this.state.movies === undefined || this.state.movies.length === 0) {
             axios.get("http://68.183.177.9:3333/movies/" + this.props.match.params.id + "?page=" + number)
                 .then(res => {
                     // console.log(res.data);

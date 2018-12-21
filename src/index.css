@@ -30,8 +30,8 @@ p {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#a6000000", endColorstr="#00000000",GradientType=0 );
   /* IE6-9 */
   display: flex;
-  padding: 40px;
-  position: fixed;
+  padding: 10px 30px;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -40,7 +40,7 @@ p {
   padding-bottom: 100px;
 }
 
-@media screen and (max-width: 535px) {
+/* @media screen and (max-width: 535px) {
   .Header{  
     display: block;
     margin-bottom: 0;
@@ -50,10 +50,7 @@ p {
     width: 100%;
     text-align: center;
   }
-  /* .Navigation{
-
-  } */
-}
+} */
 
 .cobaNavbarToggler {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
