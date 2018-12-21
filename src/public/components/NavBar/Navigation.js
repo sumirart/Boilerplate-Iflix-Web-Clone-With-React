@@ -7,8 +7,7 @@ class Navigation extends Component {
 			<div id="navigation" className="Navigation">
 				<nav>
 					<ul>
-						<Link to="/category/box-office">Box Office</Link>
-						{/* <li><a href="/category/box-office">Box Office</a></li> */}
+						<li><Link to="/category/box-office">Box Office</Link></li>
 						{/* <li><a href="/category/tv-series">TV Series</a></li>
 						<li><a href="/category/animes">Animes</a></li> */}
 					</ul>
