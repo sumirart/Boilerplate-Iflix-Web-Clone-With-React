@@ -17,8 +17,8 @@ class Movie extends Component {
     componentDidMount() {
         this.getMoviesRelated(this.props.location.state.id)
     }
-    componentDidUpdate(prevProps){
-        if(this.props.location.state.id !== prevProps.location.state.id){
+    componentDidUpdate(prevProps) {
+        if (this.props.location.state.id !== prevProps.location.state.id) {
             // console.log('props change')
             this.getMoviesRelated(this.props.location.state.id)
         }
@@ -54,6 +54,16 @@ class Movie extends Component {
         // console.log(this.props.location.pathname.substr(7,)) //"/movie/Nonton-"
 
         const data = this.props.location.state;
+        const genreSplit = data.genre.split(',').map((item, index) => {
+            return (index ? ', ' : "") + item
+        });
+        const directorsSplit = data.directors.split(',').map((item, index) => {
+            return (index ? ', ' : "") + item
+        });
+        const actorsSplit = data.actors.split(',').map((item, index) => {
+            return (index ? ', ' : "") + item
+        });
+
         return (
             // <div style={{ marginTop: 100, marginBottom: "5vh" }}>
             <Container style={{ marginTop: 100, marginBottom: "5vh" }}>
@@ -70,7 +80,7 @@ class Movie extends Component {
                         styles={{ maxHeight: "800px" }}
                         allowFullScreen />
                 </div>
-                <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</h2>
+                <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>{data.title}</h2>
                 <hr style={{ borderTop: "3px solid white" }} />
                 <Row>
                     <Col style={{ marginTop: 10, marginBottom: 20 }}>
@@ -82,11 +92,13 @@ class Movie extends Component {
                         <img src={data.thumbnails} alt={data.title} style={{ width: "100%", borderRadius: 5 }} />
                     </Col>
                     <Col xs="auto">
-                        <p>Rating: {data.rating ? data.rating.substr(0, 3) + ' / 10' : 'no rating'} </p>
-                        <p>Genre: {data.genre}</p>
-                        <p>Directors: {data.director}</p>
-                        <p>Writers: {data.writers}</p>
-                        {/* <p>Description: {data.description}</p> */}
+                        <p>Rating: {data.rating ? data.rating + ' / 10' : 'no rating'} </p>
+                        <p>Release date: {data.release}</p>
+                        <p>Country: {data.country}</p>
+                        <p>Duration: {data.duration}</p>
+                        <p>Genre: {genreSplit}</p>
+                        <p>Directors: {directorsSplit}</p>
+                        <p>Actors: {actorsSplit}</p>
                     </Col>
                 </Row>
 
@@ -98,15 +110,15 @@ class Movie extends Component {
                 <hr style={{ borderTop: "1px solid white" }} />
                 <CardGroup>
                     <div className="row" style={{ marginBottom: 30, marginLeft: 0 }}>
-                        { this.state.loading === true ? <div className="text-center">Loading...</div> :
+                        {this.state.loading === true ? <div className="text-center">Loading...</div> :
                             this.state.movies.slice(0, 5).map(data =>
                                 <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', height: 250, width: 214 }} >
                                     <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                                         <div className="overlay">
-                                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title}</div>
                                             <div className="rating">
                                                 {data.rating ?
-                                                    data.rating.substr(0, 3) + ' / 10'
+                                                    data.rating + ' / 10'
                                                     : 'no rating'
                                                 }
                                             </div>

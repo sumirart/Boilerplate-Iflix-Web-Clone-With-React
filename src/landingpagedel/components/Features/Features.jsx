@@ -131,7 +131,7 @@ class features extends Component {
         if (isMobile) {
         return (
             <Wrapper>
-                <Features>  
+                {/* <Features>  
                     <div className="featureNav">
 
                         <a onClick={(e) => this.toggleContent(e)}>
@@ -178,13 +178,13 @@ class features extends Component {
                 </Features>
                 {!this.state.cancelContent && <CancelTab />}
                 {!this.state.watchContent && <WatchTab />}
-                {!this.state.priceContent && <PriceTab />}
+                {!this.state.priceContent && <PriceTab />} */}
             </Wrapper>
                 )
         } else {
             return (
                 <Wrapper>
-                    <Features>  
+                    {/* <Features>  
                         <div className="featureNav">
 
                             <a onClick={(e) => this.toggleContent(e)}>
@@ -232,7 +232,7 @@ class features extends Component {
                     </Features>
                     {!this.state.cancelContent && <CancelTab />}
                     {!this.state.watchContent && <WatchTab />}
-                    {!this.state.priceContent && <PriceTab />}
+                    {!this.state.priceContent && <PriceTab />} */}
                 </Wrapper>
 
             );

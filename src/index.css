@@ -51,6 +51,11 @@ p {
     text-align: center;
   }
 } */
+@media screen and (min-width: 700px) {
+  .Hero .content {
+    width: 60vw;
+  }
+}
 
 .cobaNavbarToggler {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -212,6 +217,7 @@ p {
   left: 10vw;
   top: 10vw;
 }
+
 .Hero .content .logo {
   max-width: 400px;
   display: block;
@@ -219,7 +225,7 @@ p {
   left: -5px;
 }
 .Hero .content p {
-  width: 100%;
+  width: 60%;
 }
 .Hero .content .button-wrapper {
   display: flex;
@@ -261,6 +267,7 @@ p {
   border-radius: 44px;
   font-size: 14px;
   font-weight: 600;
+  width: 30%;
   transition: border 0.125s ease, background 0.125s ease;
 }
 .Button:hover {

@@ -35,7 +35,7 @@ class UserProfile extends Component {
 					this.props.auth.user.length === 0 ?
 						<div className="User">
 							<div className="name btn-SignIn" style={{ padding: 0 }}>
-								<NavLink><Link to="/login" >Sign In</Link></NavLink>
+								<Link to="/login" >Sign In</Link>
 							</div>
 						</div>
 						:

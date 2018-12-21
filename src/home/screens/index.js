@@ -27,55 +27,58 @@ class Home extends Component {
       // isOpen: false,
       carousel: [
         {
-          id: 122,
+          id: 13,
+          title: "Aquaman (2018)",
+          slug: "Aquaman-(2018)",
           categories_id: 1,
-          title: "Aquaman 2018 CAM",
-          slug: "Aquaman-2018-CAM",
-          thumbnails: "https://bioskopkeren.fun/wp-content/uploads/2018/12/Movie-Aquaman-2018-95x125.jpg",
+          genre: "Action,Adventure,Fantasy",
+          country: "United States of America",
+          directors: "James Wan",
+          actors: "Jason Momoa,Amber Heard,Willem Dafoe,Patrick Wilson,Dolph Lundgren,Yahya Abdul-Mateen II,Nicole Kidman,Temuera Morrison,Ludi Lin,Graham McTavish",
+          rating: 7.9,
+          duration: "144 minute",
+          description: "Arthur Curry learns that he is the heir to the underwater kingdom of Atlantis, and must step forward to lead his people and be a hero to the world.",
+          thumbnails: "https://image.tmdb.org/t/p/w185//ydUpl3QkVUCHCq1VWvo2rW4Sf7y.jpg",
           video_url: "",
-          embed_url: "https://nonton.bioskopkeren.pro/redirector.php?id=WGRnZ1R2eHRoNklHUnUya1F6MXE5WWVWOVl3N0lGQmYyalg4UXZUOEpSS25VUENFSUxITzhxOUZhNk9MdE42T3gxRUxTVlBMTG5oY0krMWplemNIckRPRU0vQjVXUlpmWXl5b3NwVDFIMnVsT2VpNUVZQkNyWHNERW1iemVPa1lONDhZd1hmN0pHRmRBMm1EQTV1aXc0QlEwOVZJOVkyQy9qd0dmei9RVGhMbFl1YUFrZlRML0RHRUpjcWhuYTZXY25VZU1HcmFaUE10Y1ZWcFAwN3RrdWh3dU8wdmdXTnFORFBSb3JScm1teTZuZGpnZXJaaVNMNExtVE56Zm11Yg==",
-          rating: "7,9/10",
-          viewer: 0,
-          description: "Aquaman Sejak kecil, Arthur Curry (Jason Momoa) sudah tidak pernah mendapatkan kasih sayang Ibunya. Hanya Tom Curry (Temuera Morrison) yang memberikan petuah-petuah hidup seorang manusia, dan berharap putranya menjadi orang yang berguna di masa depan. Selain mendapatkan petuah dari Tom Curry, Arthur juga mendapatkan wejangan dari Vulko (Willem Dafoe). Orang yang sangat dipercaya ibunya. Kebalikan dari ayah Arthur, Vulko justru mengajarkan hal-hal tentang bertahan hidup. Menyeimbangkan bagaimana Arthur bisa menjadi seorang yang suatu saat nanti akan menghempaskan ombak dari lautan dengan damai. ",
-          director: "James Wan",
-          writers: "David Leslie Johnson-McGoldrick (screenplay by), Will Beall (screenplay by)",
-          genre: "2018,Action,Adventure,Fantasy,Movie",
-          created_at: "2018-12-19 15:52:58",
-          updated_at: "2018-12-19 15:52:58"
+          embed_url: "https://streamango.com/embed/dcsbtaklpbpncpfb/SHQAQUAMANHDTC72_Ganol_si_mkv_mp4",
+          created_at: "2018-12-21 20:40:22",
+          updated_at: "2018-12-21 20:40:22"
         },
         {
-          id: 2429,
+          id: 790,
+          title: "X-Men: Apocalypse (2016)",
+          slug: "X-Men:-Apocalypse-(2016)",
           categories_id: 1,
-          title: "Nonton Film Online X-Men Apocalypse Subtitle Indonesia",
-          slug: "Nonton-Film-Online-X-Men-Apocalypse-Subtitle-Indonesia",
-          thumbnails: "https://bioskopkeren.fun/wp-content/uploads/2016/05/xmenapocalypse-102x125.jpg",
+          genre: "Action,Adventure,Science Fiction,Fantasy",
+          country: "United States of America",
+          directors: "Bryan Singer,Nadia Guglieri,Christine Wilson",
+          actors: "James McAvoy,Michael Fassbender,Jennifer Lawrence,Nicholas Hoult,Oscar Isaac,Rose Byrne,Evan Peters,Josh Helman,Sophie Turner,Tye Sheridan",
+          rating: 6.5,
+          duration: "144 minute",
+          description: "After the re-emergence of the world's first mutant, world-destroyer Apocalypse, the X-Men must unite to defeat his extinction level plan.",
+          thumbnails: "https://image.tmdb.org/t/p/w185//zSouWWrySXshPCT4t3UKCQGayyo.jpg",
           video_url: "",
-          embed_url: "https://nonton.bioskopkeren.pro/redirector.php?id=WGRnZ1R2eHRoNklHUnUya1F6MXE5WWVWOVl3N0lGQmYyalg4UXZUOEpSSnp6aUQ3cmhuSDVBUFFTcG1RMnBxWVgxOXRyMHJrQ1kyZHVwcjVzaVlPeEtqUFFlemFaVTNnWW9lQTE1RHJoOXVLckZqdzNmVmpQamtkYzRVcXowWDdTZXlOR3M1ODJDU25ZWXVDNzJqUXgzQ01jMEFFWmhNODZ5OFR6ZTlibG83Qnd4SGgyUmlnRWdqNDJrZGk2MUdjUHAyaU1jbUgzR1o0a3N5WHRFei9YRGVIdHpkOE5ObXlaYmNwS2ozOUh4VzBzNzJuVHJKNGZFVGkyNFlvbzJRczR2OFhWQXRaSm9lRUFyRmZYVFlrU1E9PQ==",
-          rating: "7,6/10",
-          viewer: 0,
-          description: "Watch Streaming dan download film movie X-Men: Apocalypse 2016 subtitle bahasa indonesia online gratis di bioskopkeren.fun. Nonton movie Nonton Film Online Bioskop Online Watch Streaming Download Sub Ind",
-          director: "Bryan Singer",
-          writers: "Simon Kinberg (screenplay), Bryan Singer (story)",
-          genre: "2016,Action,Adventure,Fantasy,Movie",
-          created_at: "2018-12-19 16:00:47",
-          updated_at: "2018-12-19 16:00:47"
+          embed_url: "https://ganol.si/source_drive_private/index.php?ids=6951&extpass=JBVn",
+          created_at: "2018-12-21 20:45:45",
+          updated_at: "2018-12-21 20:45:45"
         },
         {
-          id: 4533,
+          id: 774,
+          title: "The Purge: Election Year (2016)",
+          slug: "The-Purge:-Election-Year-(2016)",
           categories_id: 1,
-          title: "Nonton The Purge Election Year Subtitle Indonesia",
-          slug: "Nonton-The-Purge-Election-Year-Subtitle-Indonesia",
-          thumbnails: "https://bioskopkeren.fun/wp-content/uploads/2016/07/Movie-The-Purge-Election-Year-2016-102x125.jpg",
+          genre: "Action,Horror,Thriller",
+          country: "France,United States of America",
+          directors: "James DeMonaco,Jenna Dayton",
+          actors: "Elizabeth Mitchell,Frank Grillo,Mykelti Williamson,Edwin Hodge,Raymond J. Barry,Ethan Phillips,Terry Serpico,David Aaron Baker,Kimberly Howe,Joseph Julian Soria",
+          rating: 6.3,
+          duration: "105 minute",
+          description: "Two years after choosing not to kill the man who killed his son, former police sergeant Leo Barnes has become head of security for Senator Charlene Roan, the front runner in the next Presidential election due to her vow to eliminate the Purge. On the night of what should be the final Purge, a betrayal from within the government forces Barnes and Roan out onto the street where they must fight to survive the night.",
+          thumbnails: "https://image.tmdb.org/t/p/w185//sm7p6NvWOBSDywdIPhmiX3SLSH8.jpg",
           video_url: "",
-          embed_url: "https://nonton.bioskopkeren.pro/redirector.php?id=WGRnZ1R2eHRoNklHUnUya1F6MXE5WWVWOVl3N0lGQmYyalg4UXZUOEpSSitvQUx5VmoyUDFuaUZHUnFqa2ZsejRJUk9ZdFRZUHByMWVzcExYT0pCTDZCYWNkWklZSW5JWFJMMlIyeGRIV09jeGxwdUloVlVzSGdwK3BKcjBCVTZnNENTOE85VHpuZ3V1WExncmtmZW54ZXVsWlJZT2FJNFZNRE1sYWFKbE9ac3k0amI0MTRxUEhPLzJZbWpwQVhYTE9nUFZOdEh1UGQ0Q2xYeFA1aEl4ZTZScWpaZU0vc29oYlBwRjlURmlVNVc3bStCQXBrTHR1RmdqY1lFdkQ5eWRDYkhFWk5VSFlEcjF3Q1V1RVovSHc9PQ==",
-          rating: "6,3/10",
-          viewer: 0,
-          description: "Watch Streaming dan download film movie The Purge Election Year 2016 subtitle bahasa indonesia online gratis di bioskopkeren.fun. Nonton movie Nonton Film Online Bioskop Online Watch Streaming Download Sub Ind",
-          director: "James DeMonaco",
-          writers: "James DeMonaco",
-          genre: "2016,Action,Horror,Movie,Sci-Fi",
-          created_at: "2018-12-19 16:27:15",
-          updated_at: "2018-12-19 16:27:15"
+          embed_url: "https://ganol.si/source_drive_private/index.php?ids=7012&extpass=-gII",
+          created_at: "2018-12-21 20:45:40",
+          updated_at: "2018-12-21 20:45:40"
         }
       ],
       movies: [],
@@ -236,10 +239,10 @@ class Home extends Component {
                       <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', width: 218 }} >
                         <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                           <div className="overlay">
-                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title}</div>
                             <div className="rating">
                               {data.rating ?
-                                data.rating.substr(0, 3) + ' / 10'
+                                data.rating + ' / 10'
                                 : 'no rating'
                               }
                             </div>
@@ -275,10 +278,10 @@ class Home extends Component {
                       <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')', width: 218 }} >
                         <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                           <div className="overlay">
-                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title}</div>
                             <div className="rating">
                               {data.rating ?
-                                data.rating.substr(0, 3) + ' / 10'
+                                data.rating + ' / 10'
                                 : 'no rating'
                               }
                             </div>
@@ -314,10 +317,10 @@ class Home extends Component {
                       <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
                         <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                           <div className="overlay">
-                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                            <div className="title" style={{ lineHeight: 1.2 }}>{data.title}</div>
                             <div className="rating">
                               {data.rating ?
-                                data.rating.substr(0, 3) + ' / 10'
+                                data.rating + ' / 10'
                                 : 'no rating'
                               }
                             </div>

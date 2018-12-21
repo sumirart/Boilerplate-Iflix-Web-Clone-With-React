@@ -96,10 +96,10 @@ class Search extends Component {
                                                         <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
                                                             <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                                                                 <div className="overlay">
-                                                                    <div className="title" style={{ lineHeight: 1.2 }}>{data.title.replace(/(^\Nonton +|\ Subtitle Indonesia+$)/mg, '')}</div>
+                                                                    <div className="title" style={{ lineHeight: 1.2 }}>{data.title}</div>
                                                                     <div className="rating">
                                                                         {data.rating ?
-                                                                            data.rating.substr(0, 3) + ' / 10'
+                                                                            data.rating + ' / 10'
                                                                             : 'no rating'
                                                                         }
                                                                     </div>

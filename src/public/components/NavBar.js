@@ -7,7 +7,7 @@ import {
     Navbar,
     NavbarToggler,
     Nav,
-    NavItem,
+    NavItem
 } from 'reactstrap';
 
 
@@ -55,26 +55,45 @@ class NavBar extends Component {
                 <Navbar expand="md" className="Header navbar-dark">
 
                     <Logo />
-                    <NavbarToggler onClick={this.toggle} className='mr-2'>
+                    <NavbarToggler onClick={this.toggle} className='mr-2' style={{ float: "right" }}>
                         <span className='navbar-toggler-icon'></span>
                     </NavbarToggler>
 
                     <Collapse isOpen={this.state.isOpen} navbar>
-                        <ul class="navbar-nav mr-auto">
-                            <Navigation />
-                            <li class="nav-item">
+                        <ul className="navbar-nav mr-auto">
+                            <li className="nav-item">
+                                <Navigation />
+                            </li>
+                            <li className="nav-item">
                                 <Search />
                             </li>
                         </ul>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <Search />
-                            </NavItem>
-
                             <UserProfile />
                         </Nav>
                     </Collapse>
                 </Navbar>
+                
+                    {/* <NavbarBrand href="/">reactstrap</NavbarBrand> */}
+                {/* <Navbar className="Header navbar-dark" expand="md">
+                    <Logo />
+                    <NavbarToggler onClick={this.toggle} style={{ float: "right" }} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="mr-auto" navbar>
+                            <NavItem>
+                                <Navigation />
+                            </NavItem>
+                        </Nav>
+                        <Nav className="ml-auto" navbar>
+                            <NavItem>
+                                <Search />
+                            </NavItem>
+                            <NavItem>
+                                <UserProfile />
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+                </Navbar> */}
             </div>
         );
     }
