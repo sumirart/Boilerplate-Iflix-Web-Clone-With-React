@@ -6,14 +6,8 @@ import {
     Collapse,
     Navbar,
     NavbarToggler,
-    NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
 } from 'reactstrap';
 
 
@@ -57,12 +51,6 @@ class NavBar extends Component {
         }
 
         return (
-            // <header className="Header" style={{ marginBottom: 100 }}>
-            //     <Logo />
-            //     <Navigation />
-            //     <Search />
-            //     <UserProfile />
-            // </header>
             <div>
                 <Navbar expand="md" className="Header navbar-dark">
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom'
 
 const Nav = styled.nav`
     height: 90px;
@@ -40,10 +41,10 @@ const Button = styled.button`
 const nav = () => {
     return (
       <Nav>
-        <a href={"/landing-page"} className="logo">
+        <Link to="/landing-page" className="logo">
             {/* <img src={netflixlogo} alt="Iplix Logo" /> */}
             <img src='https://fontmeme.com/permalink/181219/d57c3dc63d26ff6f51d5195e3f12a35f.png' alt="Netflix Logo" />
-        </a>
+        </Link>
         <Button onClick={() => window.location.href='/login'} right>Sign In</Button>
       </Nav>
     )
