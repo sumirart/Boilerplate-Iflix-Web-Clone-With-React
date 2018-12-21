@@ -57,12 +57,37 @@ class NavBar extends Component {
         }
 
         return (
-            <header className="Header" style={{ marginBottom: 100 }}>
-                <Logo />
-                <Navigation />
-                <Search />
-                <UserProfile />
-            </header>
+            // <header className="Header" style={{ marginBottom: 100 }}>
+            //     <Logo />
+            //     <Navigation />
+            //     <Search />
+            //     <UserProfile />
+            // </header>
+            <div>
+                <Navbar expand="md" className="Header navbar-dark">
+
+                    <Logo />
+                    <NavbarToggler onClick={this.toggle} className='mr-2'>
+                        <span className='navbar-toggler-icon'></span>
+                    </NavbarToggler>
+
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <ul class="navbar-nav mr-auto">
+                            <Navigation />
+                            <li class="nav-item">
+                                <Search />
+                            </li>
+                        </ul>
+                        <Nav className="ml-auto" navbar>
+                            <NavItem>
+                                <Search />
+                            </NavItem>
+
+                            <UserProfile />
+                        </Nav>
+                    </Collapse>
+                </Navbar>
+            </div>
         );
     }
 }
