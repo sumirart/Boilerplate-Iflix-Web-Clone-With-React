@@ -23,7 +23,7 @@ const nav = () => {
     return (
       <Nav>
         <Link to="/" className="logo">
-            <img src='https://fontmeme.com/permalink/181219/d57c3dc63d26ff6f51d5195e3f12a35f.png' alt="Netflix Logo" />
+            {/* <img src='https://fontmeme.com/permalink/181219/d57c3dc63d26ff6f51d5195e3f12a35f.png' alt="Netflix Logo" /> */}
         </Link>
       </Nav>
     )
