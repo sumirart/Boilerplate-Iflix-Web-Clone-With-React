@@ -69,16 +69,32 @@ class Movie extends Component {
             <Container style={{ marginTop: 100, marginBottom: "5vh" }}>
                 <div className="col-md-12" align="center" style={{ marginBottom: 20 }}>
 
-                    <Iframe url={data.embed_url}
-                        height="70vh"
-                        position="relative"
-                        id="myId"
-                        className="myClassname"
-                        // height="100%"
-                        // position="absolute"
-                        width="100%"
-                        styles={{ maxHeight: "800px" }}
-                        allowFullScreen />
+                    {
+                        data.embed_url ?
+                            <Iframe url={data.embed_url}
+                                height="70vh"
+                                position="relative"
+                                id="myId"
+                                className="myClassname"
+                                width="100%"
+                                styles={{ maxHeight: "800px" }}
+                                allowFullScreen />
+                            :
+                            data.video_url ?
+                                <Iframe url={data.video_url}
+                                    height="70vh"
+                                    position="relative"
+                                    id="myId"
+                                    className="myClassname"
+                                    width="100%"
+                                    styles={{ maxHeight: "800px" }}
+                                    allowFullScreen />
+                                    : 
+                                    <div className="myClassname align-middle" 
+                                    style={{ height: "20vh", position: "relative", width: "100%", maxHeight: "800px", fontSize: 30 }}>
+                                    <span className="align-middle" style={{ justifyContent: "center", alignItems: "center" }}>Sorry, the movie doesn't exist yet, please come back later</span>
+                                    </div>
+                    }
                 </div>
                 <h2 className="text-left" style={{ fontSize: 30, fontWeight: 600, lineHeight: 1.4, textTransform: "capitalize" }}>{data.title}</h2>
                 <hr style={{ borderTop: "3px solid white" }} />
@@ -91,7 +107,7 @@ class Movie extends Component {
                     <Col xs="3" >
                         <img src={data.thumbnails} alt={data.title} style={{ width: "100%", borderRadius: 5 }} />
                     </Col>
-                    <Col xs="auto">
+                    <Col xs="auto" style={{ maxWidth: "75%" }}>
                         <p>Rating: {data.rating ? data.rating + ' / 10' : 'no rating'} </p>
                         <p>Release date: {data.release}</p>
                         <p>Country: {data.country}</p>
