@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import {
-  Container,
-  Button,
-  CardGroup
-} from 'reactstrap';
+import { Container, Button, CardGroup } from 'reactstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+// import actions
+import { fetchAll } from '../../public/redux/actions/movie';
 
 import Hero from './components/Hero';
 
@@ -15,7 +15,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    // this.toggle = this.toggle.bind(this);
     this.fetchNextPage = this.fetchNextPage.bind(this);
     this.fetchPreviousPage = this.fetchPreviousPage.bind(this);
     this.state = {
@@ -80,22 +79,24 @@ class Home extends Component {
       trending: [],
       popular: [],
       page: 1,
-      lastPage: 0,
+      // lastPage: 0,
       loadingSection: false,
       loading: false
     };
   }
 
   componentDidMount() {
-    this.getMovies(1);
+    // this.getMovies(1);
     this.getTrending();
     this.getPopular();
+    this.props.dispatch(fetchAll(1));
   }
 
   // fetch next page
   fetchNextPage() {
     const nextPage = this.state.page + 1;
-    this.getMovies(nextPage);
+    this.setState({ page: nextPage }, () => this.props.dispatch(fetchAll(nextPage)))
+    // this.getMovies(nextPage);
 
     // move to section "semua" after fetching
     const goToAll = document.getElementById('semua');
@@ -105,8 +106,9 @@ class Home extends Component {
   // fetch previous page
   fetchPreviousPage() {
     const previousPage = this.state.page - 1;
-    this.getMovies(previousPage);
-
+    this.setState({ page: previousPage }, () => this.props.dispatch(fetchAll(previousPage)))
+    // this.getMovies(previousPage);
+    
     // move to section "semua" after fetching
     const goToAll = document.getElementById('semua');
     goToAll.scrollIntoView();
@@ -169,6 +171,10 @@ class Home extends Component {
   }
 
   render() {
+    const data = this.props.movie;
+    console.log(data);
+    console.log(data.isLoading);
+    console.log('page: ' + this.state.page)
     return (
       <div style={{ fontFamily: "Lato, sans-serif" }}>
         <div id="myCarousel" className="carousel slide" data-ride="carousel">
@@ -241,7 +247,7 @@ class Home extends Component {
                                 : 'no rating'
                               }
                             </div>
-                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                            <div className="plot">{data.description.substr(0, 150) + '..'}</div>
                           </div>
                         </Link>
                       </div>
@@ -280,7 +286,7 @@ class Home extends Component {
                                 : 'no rating'
                               }
                             </div>
-                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                            <div className="plot">{data.description.substr(0, 150) + '..'}</div>
                           </div>
                         </Link>
                       </div>
@@ -306,9 +312,9 @@ class Home extends Component {
             <CardGroup>
               <div className="row" style={{ marginBottom: 30 }}>
                 {
-                  this.state.loading === true ? <div className="text-center">Loading...</div> :
+                  data.isLoading === true ? <div className="text-center">Loading...</div> :
 
-                    this.state.movies.map(data =>
+                    data.movie.map(data =>
                       <div key={data.id} className="Item" style={{ backgroundImage: 'url(' + data.thumbnails + ')' }} >
                         <Link to={{ pathname: '/movie/' + data.slug, state: data }} data={data} style={{ color: "white", textDecoration: "none" }}>
                           <div className="overlay">
@@ -319,7 +325,7 @@ class Home extends Component {
                                 : 'no rating'
                               }
                             </div>
-                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                            <div className="plot">{data.description.substr(0, 150) + '..'}</div>
                           </div>
                         </Link>
                       </div>
@@ -335,7 +341,7 @@ class Home extends Component {
                 <Button style={{ margin: 10 }} onClick={this.fetchPreviousPage} color="danger" size="large" target="_blank">
                   Before</Button>
               }
-              {this.state.page === this.state.lastPage || this.state.lastPage === 0 ?
+              {this.state.page === data.lastPage || data.lastPage === 0 ?
                 <Button style={{ margin: 10 }} size="large" target="_blank" >Next</Button>
                 :
                 <Button style={{ margin: 10 }} onClick={this.fetchNextPage} color="danger" size="large" target="_blank">
@@ -349,18 +355,8 @@ class Home extends Component {
   }
 }
 
-// class Item extends Component {
-//   render() {
-//     return (
-//       <div className="Item" style={{ backgroundImage: 'url(' + this.props.backdrop + ')' }} >
-//         <div className="overlay">
-//           <div className="title" style={{ lineHeight: 1.2 }}>{this.props.title}</div>
-//           <div className="rating">{this.props.score} / 10</div>
-//           <div className="plot">{this.props.overview}</div>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+const mapStateToPros = state => ({
+  movie: state.movie
+})
 
-export default Home;
+export default connect(mapStateToPros)(Home);

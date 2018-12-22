@@ -109,9 +109,9 @@ class Movie extends Component {
                     </Col>
                     <Col xs="auto" style={{ maxWidth: "75%" }}>
                         <p>Rating: {data.rating ? data.rating + ' / 10' : 'no rating'} </p>
+                        <p>Duration: {data.duration}</p>
                         <p>Release date: {data.release}</p>
                         <p>Country: {data.country}</p>
-                        <p>Duration: {data.duration}</p>
                         <p>Genre: {genreSplit}</p>
                         <p>Directors: {directorsSplit}</p>
                         <p>Actors: {actorsSplit}</p>
@@ -138,7 +138,7 @@ class Movie extends Component {
                                                     : 'no rating'
                                                 }
                                             </div>
-                                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                                            <div className="plot">{data.description.substr(0, 150) + '..'}</div>
                                         </div>
                                     </Link>
                                 </div>

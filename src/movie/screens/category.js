@@ -87,7 +87,7 @@ class Category extends Component {
                                                                     : 'no rating'
                                                                 }
                                                             </div>
-                                                            <div className="plot">{data.description.substr(0, 100) + '..'}</div>
+                                                            <div className="plot">{data.description.substr(0, 150) + '..'}</div>
                                                         </div>
                                                     </Link>
                                                 </div>
