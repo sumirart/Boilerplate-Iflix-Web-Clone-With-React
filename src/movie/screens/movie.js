@@ -30,7 +30,7 @@ class Movie extends Component {
 
     getMoviesRelated(id) {
         this.setState({ loading: true });
-        axios.get("http://68.183.177.9:3333/movies/" + id + "/related")
+        axios.get(process.env.REACT_APP_REST_IP + "/movies/" + id + "/related")
             .then(res => {
                 // console.log(res.data);
                 // this.setState({ lastPage: res.data.lastPage, page: number });

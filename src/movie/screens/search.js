@@ -31,7 +31,7 @@ class Search extends Component {
         this.setState({ loading: true });
         const values = queryString.parse(this.props.location.search);
         if (this.state.movies === undefined || this.state.movies.length === 0) {
-            axios.get("http://68.183.177.9:3333/movies?search=" + values.search + "&page=" + number)
+            axios.get(process.env.REACT_APP_REST_IP + "/movies?search=" + values.search + "&page=" + number)
                 .then(res => {
                     // console.log(res.data);
                     this.setState({ lastPage: res.data.lastPage, page: number });
@@ -42,7 +42,7 @@ class Search extends Component {
                     this.setState({ loading: false })
                 })
         } else {
-            axios.get("http://68.183.177.9:3333/movies?search=" + values.search + "&page=" + number)
+            axios.get(process.env.REACT_APP_REST_IP + "/movies?search=" + values.search + "&page=" + number)
                 .then(res => {
                     const pushMovie = [...this.state.movies, ...res.data.data];
                     // console.log(pushMovie);

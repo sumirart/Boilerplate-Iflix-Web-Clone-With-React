@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const IP = "http://68.183.177.9:3333/user/";
+const IP = process.env.REACT_APP_REST_IP + "/user/";
 
 export const login = (user) => ({
     type : 'LOGIN',

@@ -29,7 +29,7 @@ class Category extends Component {
         this.setState({ loading: true });
         // const values = queryString.parse(this.props.location.search);
         if (this.state.movies === undefined || this.state.movies.length === 0) {
-            axios.get("http://68.183.177.9:3333/movies/" + this.props.match.params.id + "?page=" + number)
+            axios.get(process.env.REACT_APP_REST_IP + "/movies/" + this.props.match.params.id + "?page=" + number)
                 .then(res => {
                     // console.log(res.data);
                     this.setState({ lastPage: res.data.lastPage, page: number });
@@ -38,7 +38,7 @@ class Category extends Component {
                 .catch(err => alert("Connection to server error, please try again!"))
         } else {
             // {this.props.match.params.id}
-            axios.get("http://68.183.177.9:3333/movies/" + this.props.match.params.id + "?page=" + number)
+            axios.get(process.env.REACT_APP_REST_IP + "/movies/" + this.props.match.params.id + "?page=" + number)
                 .then(res => {
                     const pushMovie = [...this.state.movies, ...res.data.data];
                     // console.log(pushMovie);
